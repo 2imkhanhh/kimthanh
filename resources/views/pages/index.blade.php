@@ -3,7 +3,7 @@
 
             <section id="banner" class="banner-home d-flex align-items-center justify-content-center"
                 style="background-image: url('upload/banner/tra-viet-nam-la-nghe-si1698571462.jpg')">
-                <div id="description">
+                <div id="description" data-aos="fade-up">
                     <h2>Trà Việt Nam là nghệ sĩ</h2>
                     <p>Chúng tôi luôn đặt chất lượng và an toàn thực phẩm lên hàng đầu trong mọi quy trình sản xuất.
                         Toàn bộ hệ thống nhà xưởng và quy trình chế biến được đảm bảo đạt chuẩn ISO 22000:2018.</p>
@@ -14,9 +14,9 @@
                 <img src="images/right_leaf.png" class="right-leaf">
                 <div id="about-us-warp">
                     <div class="row d-flex align-items-center justify-content-center">
-                        <div class="col-md-6"><img src="upload/post/thumbs/about-us1698082096.png" alt="Giới thiệu"
+                        <div class="col-md-6" data-aos="fade-right"><img src="upload/post/thumbs/about-us1698082096.png" alt="Giới thiệu"
                                 class="img-fluid"></div>
-                        <div class="col-md-6">
+                        <div class="col-md-6" data-aos="fade-left">
                             <h2>Giới thiệu</h2>
                             <p>Công ty TNHH Đầu tư Thương mại Kim Thành được thành lập vào ngày 03/02/2020, hoạt động
                                 chuyên sâu trong lĩnh vực chế biến và sản xuất búp chè tươi xuất khẩu. Với định hướng
@@ -34,9 +34,9 @@
                 <div class="container">
                     <div class="pncateproducts">
                         <div class="pnhome_pro">
-                            <h2 class="title"><a href="tra-xanh-pt11.html">Trà xanh</a></h2>
+                            <h2 class="title" data-aos="fade-up"><a href="tra-xanh-pt11.html">Trà xanh</a></h2>
                             <div class="row_home_pro">
-                                <div class="home_pro">
+                                <div class="home_pro" data-aos="fade-up" data-aos-delay="100">
                                     <div class="in">
                                         <div class="img"><a href="vietnam-green-tea-dust-pro104.html"><img
                                                     src="upload/product/thumbs/vietnam-green-tea-dust1745393950.png"
@@ -48,7 +48,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="home_pro">
+                                <div class="home_pro" data-aos="fade-up" data-aos-delay="200">
                                     <div class="in">
                                         <div class="img"><a href="vietnam-green-tea-ps-pro105.html"><img
                                                     src="upload/product/thumbs/vietnam-green-tea-ps1745393983.png"
@@ -60,7 +60,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="home_pro">
+                                <div class="home_pro" data-aos="fade-up" data-aos-delay="300">
                                     <div class="in">
                                         <div class="img"><a href="vietnam-green-tea-bps-pro106.html"><img
                                                     src="upload/product/thumbs/vietnam-green-tea-bps1745394173.png"
@@ -72,7 +72,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="home_pro">
+                                <div class="home_pro" data-aos="fade-up" data-aos-delay="400">
                                     <div class="in">
                                         <div class="img"><a href="vietnam-green-tea-madina-pro103.html"><img
                                                     src="upload/product/thumbs/vietnam-green-tea-madina1745393910.png"
@@ -91,9 +91,9 @@
             </section>
             <section id="contact">
                 <div id="contact-warp">
-                    <h2>Liên hệ</h2>
+                    <h2 data-aos="fade-up">Liên hệ</h2>
                     <div class="row">
-                        <div class="col-md-6">
+                        <div class="col-md-6" data-aos="fade-right">
                             <div class="contact-item mb-3 d-flex align-items-center">
                                 <h4>CÔNG TY TNHH THƯƠNG MẠI ĐẦU TƯ KIM THÀNH</h4>
                             </div>
@@ -108,7 +108,7 @@
                                 <i class="fa-solid fa-envelope"></i> kimthanhinvestmenttradingltd@gmail.com
                             </div>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-6" data-aos="fade-left">
                             <form class="form-horizontal" action="https://kimthanhintc.com/contact.html"
                                 name="frmContact" id="frmContact" method="post">
                                 <div class="form-group required mt-2">

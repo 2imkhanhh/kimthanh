@@ -15,7 +15,6 @@
     <meta property="og:site_name" content="Tin tức KIM THÀNH">
     <link rel="canonical" href="@yield("canonical", "https://kimthanhintc.com/blog.html")">
     <link rel="shortcut icon" href="images/favicon.png">
-    <link rel="stylesheet" href="css/animate.min.css">
     <link rel="stylesheet" href="asset/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="asset/bootstrap-icons/bootstrap-icons.min.css">
     <link rel="stylesheet" href="asset/jquery-ui/jquery-ui.min.css">
@@ -27,8 +26,10 @@
     <link href="../fonts.googleapis.com/css2/family%3DLora_ital%2Cwght%400%2C400%3B0%2C500%3B0%2C600%3B0%2C700%3B1%2C400%3B1%2C500%3B1%2C600%3B1%2C700%26display%3Dswap" rel="stylesheet">
     <link href="../fonts.googleapis.com/css2/family%3DRoboto_wght%40400%3B700%26display%3Dswap" rel="stylesheet">
     <link href="../fonts.googleapis.com/css2/family%3DInter%26display%3Dswap" rel="stylesheet">
-    <link rel="stylesheet" href="css/css.css">
-    <link rel="stylesheet" href="css/themes_v%3D1787884351.css">
+    <link rel="stylesheet" href="{{ asset('css/css.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/themes_v=1787884351.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/modern-ui.css') }}">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 	
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -413,7 +414,15 @@
 <script type="text/javascript" src="js/loading.js"></script>
 <script type="text/javascript" src="js/functions.js"></script>
 <script type="text/javascript" src="js/js_v%3D1.2.js"></script>
-<script type="text/javascript" src="js/nav_v%3D1.1.js"></script>
+<script type="text/javascript" src="{{ asset('js/nav_v=1.1.js') }}"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    AOS.init({
+        duration: 800,
+        once: true,
+        offset: 100
+    });
+</script>
 	
 
 </body></html>
