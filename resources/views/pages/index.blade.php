@@ -41,7 +41,8 @@
                     <h4 class="fw-bold mb-4 text-success opacity-75">Giới thiệu Kim Thành</h4>
                     <p class="text-muted fs-5 mb-4">Công ty TNHH Đầu tư Thương mại Kim Thành được thành lập vào ngày
                         03/02/2020, hoạt động chuyên sâu trong lĩnh vực chế biến và sản xuất búp chè tươi xuất khẩu.</p>
-                    <p class="text-muted fs-5 mb-4">Với định hướng phát triển bền vững và cam kết mang đến những sản phẩm nông
+                    <p class="text-muted fs-5 mb-4">Với định hướng phát triển bền vững và cam kết mang đến những sản phẩm
+                        nông
                         sản chất lượng cao, chúng tôi đã từng bước xây dựng uy tín và mở rộng thị trường sang nhiều quốc
                         gia, bao gồm Trung Quốc, Thái Lan, Pakistan, Afghanistan, Nga và Ấn Độ.</p>
                     <a href="gioi-thieu.html" class="btn btn-outline-success btn-lg rounded-pill px-4">Xem chi tiết <i
@@ -169,7 +170,8 @@
                                     thời gian sớm nhất để tư vấn về sản phẩm.</p>
 
                                 <div class="d-flex align-items-center mb-4">
-                                    <div class="bg-white bg-opacity-25 rounded-circle me-3 d-flex align-items-center justify-content-center flex-shrink-0" style="width: 50px; height: 50px;">
+                                    <div class="bg-white bg-opacity-25 rounded-circle me-3 d-flex align-items-center justify-content-center flex-shrink-0"
+                                        style="width: 50px; height: 50px;">
                                         <i class="fa-solid fa-location-dot fs-5"></i>
                                     </div>
                                     <div>
@@ -180,7 +182,8 @@
                                 </div>
 
                                 <div class="d-flex align-items-center mb-4">
-                                    <div class="bg-white bg-opacity-25 rounded-circle me-3 d-flex align-items-center justify-content-center flex-shrink-0" style="width: 50px; height: 50px;">
+                                    <div class="bg-white bg-opacity-25 rounded-circle me-3 d-flex align-items-center justify-content-center flex-shrink-0"
+                                        style="width: 50px; height: 50px;">
                                         <i class="fa-solid fa-phone-volume fs-5"></i>
                                     </div>
                                     <div>
@@ -190,7 +193,8 @@
                                 </div>
 
                                 <div class="d-flex align-items-center">
-                                    <div class="bg-white bg-opacity-25 rounded-circle me-3 d-flex align-items-center justify-content-center flex-shrink-0" style="width: 50px; height: 50px;">
+                                    <div class="bg-white bg-opacity-25 rounded-circle me-3 d-flex align-items-center justify-content-center flex-shrink-0"
+                                        style="width: 50px; height: 50px;">
                                         <i class="fa-solid fa-envelope fs-5"></i>
                                     </div>
                                     <div>

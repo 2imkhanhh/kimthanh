@@ -1,5 +1,4 @@
 :root {
-    /* Brand Colors */
     --primary-green: #90B239;
     --primary-green-hover: #7b9931;
     --primary-gold: #B48B24;
@@ -14,7 +13,6 @@
     --radius-lg: 20px;
     --transition: all 0.3s ease-in-out;
 
-    /* Override Bootstrap variables */
     --bs-primary: #90B239;
     --bs-primary-rgb: 144, 178, 57;
     --bs-success: #90B239;
@@ -23,39 +21,83 @@
     --bs-info-rgb: 180, 139, 36;
 }
 
-/* ================== STRONG BOOTSTRAP OVERRIDES ================== */
-.btn-success { background-color: var(--primary-green) !important; border-color: var(--primary-green) !important; color: #fff !important; }
-.btn-success:hover { background-color: var(--primary-green-hover) !important; border-color: var(--primary-green-hover) !important; }
-.btn-outline-success { color: var(--primary-green) !important; border-color: var(--primary-green) !important; }
-.btn-outline-success:hover { background-color: var(--primary-green) !important; color: #fff !important; }
-.bg-success { background-color: var(--primary-green) !important; }
-.text-success { color: var(--primary-green) !important; }
+.btn-success {
+    background-color: var(--primary-green) !important;
+    border-color: var(--primary-green) !important;
+    color: #fff !important;
+}
 
-/* ================== TYPOGRAPHY & GLOBAL ================== */
+.btn-success:hover {
+    background-color: var(--primary-green-hover) !important;
+    border-color: var(--primary-green-hover) !important;
+}
+
+.btn-outline-success {
+    color: var(--primary-green) !important;
+    border-color: var(--primary-green) !important;
+}
+
+.btn-outline-success:hover {
+    background-color: var(--primary-green) !important;
+    color: #fff !important;
+}
+
+.bg-success {
+    background-color: var(--primary-green) !important;
+}
+
+.text-success {
+    color: var(--primary-green) !important;
+}
+
 body {
     font-family: 'Inter', sans-serif;
     color: var(--text-dark);
     line-height: 1.6;
     background-color: #fdfdfd;
-    font-size: 16px; /* Cơ sở font size đồng bộ */
+    font-size: 16px;
 }
+
 p {
     font-size: 16px;
     margin-bottom: 1rem;
 }
-h1, h2, h3, h4, h5, h6 {
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     font-family: 'Lora', serif;
     color: var(--primary-green);
     margin-bottom: 1rem;
     font-weight: 700;
 }
-/* Chuẩn hóa hệ thống Heading đồng bộ trên toàn trang */
-h1 { font-size: 2.5rem; }
-h2 { font-size: 2rem; }
-h3 { font-size: 1.75rem; }
-h4 { font-size: 1.5rem; }
-h5 { font-size: 1.25rem; }
-h6 { font-size: 1rem; }
+
+h1 {
+    font-size: 2.5rem;
+}
+
+h2 {
+    font-size: 2rem;
+}
+
+h3 {
+    font-size: 1.75rem;
+}
+
+h4 {
+    font-size: 1.5rem;
+}
+
+h5 {
+    font-size: 1.25rem;
+}
+
+h6 {
+    font-size: 1rem;
+}
 
 a {
     transition: var(--transition);
@@ -79,31 +121,61 @@ header {
     letter-spacing: 0.5px;
 }
 
-.navmenu a {
+.navbar-nav .nav-link {
     font-family: 'Inter', sans-serif;
     font-weight: 600 !important;
     text-transform: uppercase;
     font-size: 15px !important;
     letter-spacing: 1px;
     position: relative;
+    color: var(--text-dark) !important;
+    transition: var(--transition);
 }
 
-@media (min-width: 1200px) {
-    .navmenu a::after {
-        content: '';
-        position: absolute;
-        width: 0;
-        height: 2px;
-        bottom: 8px;
-        left: 50%;
-        background-color: var(--primary-green);
-        transition: var(--transition);
-        transform: translateX(-50%);
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+    color: var(--primary-green) !important;
+}
+
+@media (min-width: 992px) {
+    .navbar .dropdown:hover .dropdown-menu {
+        display: block !important;
+        margin-top: 0;
+        animation: fadeIn 0.3s ease;
+    }
+}
+
+.dropdown-menu {
+    border-radius: var(--radius-md);
+    padding: 10px 0;
+    border: none;
+    box-shadow: var(--shadow-hover);
+}
+
+.dropdown-item {
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    padding: 10px 20px;
+    color: var(--text-dark);
+    transition: var(--transition);
+}
+
+.dropdown-item:hover,
+.dropdown-item:focus {
+    background-color: rgba(144, 178, 57, 0.1);
+    color: var(--primary-green);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
     }
 
-    .navmenu a:hover::after,
-    .navmenu .active::after {
-        width: 70%;
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
 
@@ -148,8 +220,6 @@ a.btn-themes:hover,
     display: flex;
     align-items: center;
 }
-
-
 
 #banner #description {
     position: relative;
@@ -256,7 +326,6 @@ a.btn-themes:hover,
     background-color: var(--primary-gold);
 }
 
-/* About Us Section Modernization */
 #about-us-1 {
     position: relative;
 }
@@ -269,7 +338,6 @@ a.btn-themes:hover,
     right: 0;
     bottom: 0;
     background: rgba(144, 178, 57, 0.1);
-    /* Overlay to make text readable */
     z-index: 1;
 }
 
@@ -283,7 +351,6 @@ a.btn-themes:hover,
     border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-/* ================== BLOG / NEWS ================== */
 #panel-news-main {
     background: var(--bg-light);
 }
@@ -314,10 +381,20 @@ a.btn-themes:hover,
     font-size: 20px;
 }
 
-/* ================== FOOTER ================== */
 #footer {
     background-color: var(--primary-green);
     color: #fff;
+}
+
+#footer a.hover-white {
+    position: relative;
+    display: inline-block;
+    transition: var(--transition);
+}
+
+#footer a.hover-white:hover {
+    transform: translateX(5px);
+    color: #fff !important;
 }
 
 #footer_text h4 {
@@ -337,7 +414,7 @@ a.btn-themes:hover,
 #footer_text p a:hover {
     color: #fff;
 }
-/* Form Control Focus Override */
+
 .form-control:focus {
     border-color: var(--primary-green) !important;
     box-shadow: 0 0 0 0.25rem rgba(144, 178, 57, 0.25) !important;
