@@ -78,26 +78,26 @@
                     <div class="collapse navbar-collapse justify-content-center" id="mainMenu">
                         <ul class="navbar-nav gap-2 gap-lg-4 text-uppercase fw-semibold fs-6">
                             <li class="nav-item">
-                                <a class="nav-link active" href="/">Trang chủ</a>
+                                <a class="nav-link {{ request()->is('/') ? 'active' : '' }}" href="/">Trang chủ</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="gioi-thieu.html">Giới thiệu</a>
+                                <a class="nav-link {{ request()->is('gioi-thieu.html') ? 'active' : '' }}" href="/gioi-thieu.html">Giới thiệu</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="san-pham.html">Sản phẩm</a>
+                                <a class="nav-link {{ request()->is('san-pham.html') ? 'active' : '' }}" href="/san-pham.html">Sản phẩm</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="lien-he.html">Liên hệ</a>
+                                <a class="nav-link {{ request()->is('lien-he.html') ? 'active' : '' }}" href="/lien-he.html">Liên hệ</a>
                             </li>
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="blogDropdown" role="button"
+                                <a class="nav-link dropdown-toggle {{ request()->is('gallery.html') || request()->is('blog.html') || request()->is('others-news.html') ? 'active' : '' }}" href="#" id="blogDropdown" role="button"
                                     data-bs-toggle="dropdown" aria-expanded="false">
                                     Blog
                                 </a>
                                 <ul class="dropdown-menu border-0 shadow" aria-labelledby="blogDropdown">
-                                    <li><a class="dropdown-item" href="gallery.html">Thư viện ảnh</a></li>
-                                    <li><a class="dropdown-item" href="blog.html">Tin tức</a></li>
-                                    <li><a class="dropdown-item" href="others-news.html">Tin khác</a></li>
+                                    <li><a class="dropdown-item {{ request()->is('gallery.html') ? 'active' : '' }}" href="/gallery.html">Thư viện ảnh</a></li>
+                                    <li><a class="dropdown-item {{ request()->is('blog.html') ? 'active' : '' }}" href="/blog.html">Tin tức</a></li>
+                                    <li><a class="dropdown-item {{ request()->is('others-news.html') ? 'active' : '' }}" href="/others-news.html">Tin khác</a></li>
                                 </ul>
                             </li>
                         </ul>
