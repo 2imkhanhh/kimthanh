@@ -137,6 +137,21 @@ header {
     color: var(--primary-green) !important;
 }
 
+.nav-pills .nav-link.active,
+.nav-pills .show>.nav-link {
+    background-color: var(--primary-green) !important;
+    color: #fff !important;
+}
+
+.nav-pills .nav-link {
+    color: var(--text-dark);
+    font-weight: 500;
+}
+
+.nav-pills .nav-link:hover {
+    color: var(--primary-green);
+}
+
 @media (min-width: 992px) {
     .navbar .dropdown:hover .dropdown-menu {
         display: block !important;

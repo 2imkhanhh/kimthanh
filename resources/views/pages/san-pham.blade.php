@@ -2,12 +2,12 @@
 @section('content')
 
     <!-- HERO SECTION -->
-    <section id="hero" class="d-flex align-items-center position-relative" style="background: url('upload/banner/san-pham1698571509.jpg') center/cover no-repeat; min-height: 40vh;">
+    <section id="hero" class="d-flex align-items-center position-relative vh-100" style="background: url('upload/banner/san-pham1698571509.jpg') center/cover no-repeat; min-height: 80vh;">
         
         
         <div class="container position-relative text-white z-index-1 text-center" data-aos="fade-up">
-            <h1 class="display-4 fw-bold mb-3 text-white">Sản phẩm</h1>
-            <p class="lead mb-0 text-white-50 mx-auto" style="max-width: 800px;">Chất lượng là nền tảng: Luôn đặt chất lượng sản phẩm lên hàng đầu, từ quy trình sản xuất đến tiêu chuẩn an toàn thực phẩm quốc tế.</p>
+            <h1 class="display-3 fw-bold mb-3 text-white">Sản phẩm</h1>
+            <p class="lead mb-0 text-white mx-auto" style="max-width: 800px;">Chất lượng là nền tảng: Luôn đặt chất lượng sản phẩm lên hàng đầu, từ quy trình sản xuất đến tiêu chuẩn an toàn thực phẩm quốc tế.</p>
         </div>
     </section>
 
@@ -36,14 +36,14 @@
                             <div class="card h-100 border-0 shadow-sm product-card transition-all">
                                 <div class="position-relative overflow-hidden rounded-top-4">
                                     <a href="vietnam-green-tea-f-pro108.html">
-                                        <img src="upload/product/thumbs/vietnam-green-tea-f1745394268.png" class="card-img-top w-100 object-fit-cover" alt="Vietnam Green Tea: F" style="height: 280px;">
+                                        <img src="upload/product/thumbs/vietnam-green-tea-f1745394268.png" class="card-img-top w-100 object-fit-cover" alt="Vietnam Green Tea: F" style="height: 250px;">
                                     </a>
                                 </div>
                                 <div class="card-body text-center p-4">
                                     <h5 class="card-title mb-3">
                                         <a href="vietnam-green-tea-f-pro108.html" class="text-dark text-decoration-none fw-semibold product-title">Vietnam Green Tea: F</a>
                                     </h5>
-                                    <a href="lien-he.html" class="btn btn-outline-success rounded-pill px-4 py-2 w-100">Liên hệ báo giá</a>
+                                    <a href="lien-he.html" class="btn btn-success rounded-pill px-4 py-2 w-100">Liên hệ báo giá</a>
                                 </div>
                             </div>
                         </div>
@@ -53,14 +53,14 @@
                             <div class="card h-100 border-0 shadow-sm product-card transition-all">
                                 <div class="position-relative overflow-hidden rounded-top-4">
                                     <a href="vietnam-green-tea-op-pro107.html">
-                                        <img src="upload/product/thumbs/vietnam-green-tea-op1745394225.png" class="card-img-top w-100 object-fit-cover" alt="Vietnam Green Tea: OP" style="height: 280px;">
+                                        <img src="upload/product/thumbs/vietnam-green-tea-op1745394225.png" class="card-img-top w-100 object-fit-cover" alt="Vietnam Green Tea: OP" style="height: 250px;">
                                     </a>
                                 </div>
                                 <div class="card-body text-center p-4">
                                     <h5 class="card-title mb-3">
                                         <a href="vietnam-green-tea-op-pro107.html" class="text-dark text-decoration-none fw-semibold product-title">Vietnam Green Tea: OP</a>
                                     </h5>
-                                    <a href="lien-he.html" class="btn btn-outline-success rounded-pill px-4 py-2 w-100">Liên hệ báo giá</a>
+                                    <a href="lien-he.html" class="btn btn-success rounded-pill px-4 py-2 w-100">Liên hệ báo giá</a>
                                 </div>
                             </div>
                         </div>
@@ -70,14 +70,14 @@
                             <div class="card h-100 border-0 shadow-sm product-card transition-all">
                                 <div class="position-relative overflow-hidden rounded-top-4">
                                     <a href="vietnam-green-tea-bps-pro106.html">
-                                        <img src="upload/product/thumbs/vietnam-green-tea-bps1745394173.png" class="card-img-top w-100 object-fit-cover" alt="Vietnam Green Tea: BPS" style="height: 280px;">
+                                        <img src="upload/product/thumbs/vietnam-green-tea-bps1745394173.png" class="card-img-top w-100 object-fit-cover" alt="Vietnam Green Tea: BPS" style="height: 250px;">
                                     </a>
                                 </div>
                                 <div class="card-body text-center p-4">
                                     <h5 class="card-title mb-3">
                                         <a href="vietnam-green-tea-bps-pro106.html" class="text-dark text-decoration-none fw-semibold product-title">Vietnam Green Tea: BPS</a>
                                     </h5>
-                                    <a href="lien-he.html" class="btn btn-outline-success rounded-pill px-4 py-2 w-100">Liên hệ báo giá</a>
+                                    <a href="lien-he.html" class="btn btn-success rounded-pill px-4 py-2 w-100">Liên hệ báo giá</a>
                                 </div>
                             </div>
                         </div>
@@ -87,14 +87,14 @@
                             <div class="card h-100 border-0 shadow-sm product-card transition-all">
                                 <div class="position-relative overflow-hidden rounded-top-4">
                                     <a href="vietnam-green-tea-ps-pro105.html">
-                                        <img src="upload/product/thumbs/vietnam-green-tea-ps1745393983.png" class="card-img-top w-100 object-fit-cover" alt="Vietnam Green Tea: PS" style="height: 280px;">
+                                        <img src="upload/product/thumbs/vietnam-green-tea-ps1745393983.png" class="card-img-top w-100 object-fit-cover" alt="Vietnam Green Tea: PS" style="height: 250px;">
                                     </a>
                                 </div>
                                 <div class="card-body text-center p-4">
                                     <h5 class="card-title mb-3">
                                         <a href="vietnam-green-tea-ps-pro105.html" class="text-dark text-decoration-none fw-semibold product-title">Vietnam Green Tea: PS</a>
                                     </h5>
-                                    <a href="lien-he.html" class="btn btn-outline-success rounded-pill px-4 py-2 w-100">Liên hệ báo giá</a>
+                                    <a href="lien-he.html" class="btn btn-success rounded-pill px-4 py-2 w-100">Liên hệ báo giá</a>
                                 </div>
                             </div>
                         </div>
@@ -104,14 +104,14 @@
                             <div class="card h-100 border-0 shadow-sm product-card transition-all">
                                 <div class="position-relative overflow-hidden rounded-top-4">
                                     <a href="vietnam-green-tea-dust-pro104.html">
-                                        <img src="upload/product/thumbs/vietnam-green-tea-dust1745393950.png" class="card-img-top w-100 object-fit-cover" alt="Vietnam Green Tea: Dust" style="height: 280px;">
+                                        <img src="upload/product/thumbs/vietnam-green-tea-dust1745393950.png" class="card-img-top w-100 object-fit-cover" alt="Vietnam Green Tea: Dust" style="height: 250px;">
                                     </a>
                                 </div>
                                 <div class="card-body text-center p-4">
                                     <h5 class="card-title mb-3">
                                         <a href="vietnam-green-tea-dust-pro104.html" class="text-dark text-decoration-none fw-semibold product-title">Vietnam Green Tea: Dust</a>
                                     </h5>
-                                    <a href="lien-he.html" class="btn btn-outline-success rounded-pill px-4 py-2 w-100">Liên hệ báo giá</a>
+                                    <a href="lien-he.html" class="btn btn-success rounded-pill px-4 py-2 w-100">Liên hệ báo giá</a>
                                 </div>
                             </div>
                         </div>
@@ -121,14 +121,14 @@
                             <div class="card h-100 border-0 shadow-sm product-card transition-all">
                                 <div class="position-relative overflow-hidden rounded-top-4">
                                     <a href="vietnam-green-tea-madina-pro103.html">
-                                        <img src="upload/product/thumbs/vietnam-green-tea-madina1745393910.png" class="card-img-top w-100 object-fit-cover" alt="Vietnam Green Tea: Madina" style="height: 280px;">
+                                        <img src="upload/product/thumbs/vietnam-green-tea-madina1745393910.png" class="card-img-top w-100 object-fit-cover" alt="Vietnam Green Tea: Madina" style="height: 250px;">
                                     </a>
                                 </div>
                                 <div class="card-body text-center p-4">
                                     <h5 class="card-title mb-3">
                                         <a href="vietnam-green-tea-madina-pro103.html" class="text-dark text-decoration-none fw-semibold product-title">Vietnam Green Tea: Madina</a>
                                     </h5>
-                                    <a href="lien-he.html" class="btn btn-outline-success rounded-pill px-4 py-2 w-100">Liên hệ báo giá</a>
+                                    <a href="lien-he.html" class="btn btn-success rounded-pill px-4 py-2 w-100">Liên hệ báo giá</a>
                                 </div>
                             </div>
                         </div>
