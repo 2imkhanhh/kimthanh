@@ -109,7 +109,7 @@
     </section>
 
     <!-- CORE VALUES SECTION -->
-    <section class="py-5 text-white position-relative" style="background: url('upload/banner/tra-viet-nam-la-nghe-si1698571462.jpg') center/cover no-repeat; background-attachment: fixed;">
+    <section class="py-5 text-white position-relative" style="background: url('upload/banner/tra-viet-nam-la-nghe-si1698571462.jpg') center top / cover no-repeat;">
         <div class="position-absolute top-0 start-0 w-100 h-100 bg-dark opacity-75"></div>
         <div class="container py-5 position-relative" style="z-index: 1;">
             <div class="text-center mb-5" data-aos="fade-up">
