@@ -36,13 +36,6 @@
 
     <link rel="stylesheet" href="{{ asset('css/modern-ui.css?v=' . time()) }}">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <script src="https://kimthanhintc.com/js/html5shiv.min.js"></script>
- <script src="https://kimthanhintc.com/js/respond.min.js"></script>
-    <![endif]-->
 </head>
 
 <body>
@@ -69,10 +62,17 @@
                     <a class="navbar-brand" href="/">
                         <img src="upload/banner/logo1698075966.png" alt="Logo Kim Thành" height="50">
                     </a>
-                    <button class="hamburger d-lg-none" id="hamburger" type="button" aria-label="Toggle navigation">
-                        <span></span>
-                        <span></span>
-                        <span></span>
+                    <button class="hamburger d-lg-none" id="hamburger" type="button" aria-label="Toggle navigation"
+                        style="color: var(--text-dark);">
+                        <svg viewBox="0 0 32 21" width="32" height="21" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <rect class="line-1" x="1" y="0" width="30" height="3" rx="1.5"
+                                fill="currentColor" />
+                            <rect class="line-2" x="1" y="9" width="30" height="3" rx="1.5"
+                                fill="currentColor" />
+                            <rect class="line-3" x="1" y="18" width="30" height="3" rx="1.5"
+                                fill="currentColor" />
+                        </svg>
                     </button>
 
                     <div class="collapse navbar-collapse justify-content-center" id="mainMenu">
@@ -168,32 +168,52 @@
 
                     <div class="col-lg-4 col-md-6 d-lg-flex justify-content-lg-center">
                         <ul class="list-unstyled mb-0">
-                            <li class="mb-3"><a href="gioi-thieu.html" class="text-white text-decoration-none hover-white small"><i class="fa-solid fa-chevron-right me-2" style="font-size: 0.8em;"></i> Giới thiệu</a></li>
-                            <li class="mb-3"><a href="san-pham.html" class="text-white text-decoration-none hover-white small"><i class="fa-solid fa-chevron-right me-2" style="font-size: 0.8em;"></i> Sản phẩm</a></li>
-                            <li class="mb-3"><a href="blog.html" class="text-white text-decoration-none hover-white small"><i class="fa-solid fa-chevron-right me-2" style="font-size: 0.8em;"></i> Tin tức</a></li>
-                            <li class="mb-0"><a href="lien-he.html" class="text-white text-decoration-none hover-white small"><i class="fa-solid fa-chevron-right me-2" style="font-size: 0.8em;"></i> Liên hệ</a></li>
+                            <li class="mb-3"><a href="gioi-thieu.html"
+                                    class="text-white text-decoration-none hover-white small"><i
+                                        class="fa-solid fa-chevron-right me-2" style="font-size: 0.8em;"></i> Giới
+                                    thiệu</a></li>
+                            <li class="mb-3"><a href="san-pham.html"
+                                    class="text-white text-decoration-none hover-white small"><i
+                                        class="fa-solid fa-chevron-right me-2" style="font-size: 0.8em;"></i> Sản
+                                    phẩm</a></li>
+                            <li class="mb-3"><a href="blog.html"
+                                    class="text-white text-decoration-none hover-white small"><i
+                                        class="fa-solid fa-chevron-right me-2" style="font-size: 0.8em;"></i> Tin
+                                    tức</a></li>
+                            <li class="mb-0"><a href="lien-he.html"
+                                    class="text-white text-decoration-none hover-white small"><i
+                                        class="fa-solid fa-chevron-right me-2" style="font-size: 0.8em;"></i> Liên
+                                    hệ</a></li>
                         </ul>
                     </div>
 
                     <div class="col-lg-4 col-md-6 d-lg-flex justify-content-lg-end">
                         <div>
                             <div class="d-flex align-items-start mb-3">
-                                <i class="fa-solid fa-location-dot text-white mt-1 me-3" style="width: 16px; text-align: center; flex-shrink: 0;"></i>
-                                <div class="text-white small" style="flex: 1;">Xóm Chanh, Xã Sơn Hùng, Huyện Thanh Sơn, tỉnh Phú Thọ, Việt Nam.</div>
+                                <i class="fa-solid fa-location-dot text-white mt-1 me-3"
+                                    style="width: 16px; text-align: center; flex-shrink: 0;"></i>
+                                <div class="text-white small" style="flex: 1;">Xóm Chanh, Xã Sơn Hùng, Huyện Thanh
+                                    Sơn, tỉnh Phú Thọ, Việt Nam.</div>
                             </div>
                             <div class="d-flex align-items-start mb-3">
-                                <i class="fa-solid fa-envelope text-white mt-1 me-3" style="width: 16px; text-align: center; flex-shrink: 0;"></i>
+                                <i class="fa-solid fa-envelope text-white mt-1 me-3"
+                                    style="width: 16px; text-align: center; flex-shrink: 0;"></i>
                                 <div style="flex: 1;">
-                                    <a href="mailto:kimthanhinvestmenttradingltd@gmail.com" class="text-white text-decoration-none small" style="letter-spacing: 0.5px; word-break: break-all;">kimthanhinvestmenttradingltd@gmail.com</a>
+                                    <a href="mailto:kimthanhinvestmenttradingltd@gmail.com"
+                                        class="text-white text-decoration-none small"
+                                        style="letter-spacing: 0.5px; word-break: break-all;">kimthanhinvestmenttradingltd@gmail.com</a>
                                 </div>
                             </div>
                             <div class="d-flex align-items-start mb-3">
-                                <i class="fa-solid fa-phone text-white mt-1 me-3" style="width: 16px; text-align: center; flex-shrink: 0;"></i>
+                                <i class="fa-solid fa-phone text-white mt-1 me-3"
+                                    style="width: 16px; text-align: center; flex-shrink: 0;"></i>
                                 <div class="text-white small" style="flex: 1;">0986843666 - 0965748456</div>
                             </div>
                             <div class="d-flex align-items-start mb-0">
-                                <i class="fa-solid fa-building text-white mt-1 me-3" style="width: 16px; text-align: center; flex-shrink: 0;"></i>
-                                <div class="text-white small" style="flex: 1;">MST 2601039326 (Sở KH & ĐT Tỉnh Phú Thọ cấp 03/02/2020)</div>
+                                <i class="fa-solid fa-building text-white mt-1 me-3"
+                                    style="width: 16px; text-align: center; flex-shrink: 0;"></i>
+                                <div class="text-white small" style="flex: 1;">MST 2601039326 (Sở KH & ĐT Tỉnh Phú Thọ
+                                    cấp 03/02/2020)</div>
                             </div>
                         </div>
                     </div>
