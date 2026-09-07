@@ -19,7 +19,7 @@
                     <div class="card border-0 shadow-lg rounded-4 overflow-hidden">
                         <div class="row g-0">
                             <!-- Contact Info -->
-                            <div class="col-md-5 bg-success text-white p-5 d-flex flex-column justify-content-center"
+                            <div class="col-md-5 bg-success text-white p-4 p-md-5 d-flex flex-column justify-content-center"
                                 data-aos="fade-right">
                                 <h3 class="fw-bold mb-4 text-white">Thông tin liên hệ</h3>
                                 <p class="mb-4 opacity-75">Hãy để lại thông tin, chúng tôi sẽ liên hệ lại với bạn trong thời
@@ -61,7 +61,7 @@
                             </div>
 
                             <!-- Contact Form -->
-                            <div class="col-md-7 p-5 bg-white" data-aos="fade-left">
+                            <div class="col-md-7 p-4 p-md-5 bg-white" data-aos="fade-left">
                                 <h4 class="fw-bold mb-4 text-dark">Gửi Tin Nhắn</h4>
                                 <form action="https://kimthanhintc.com/contact.html" name="frmContact" id="frmContact"
                                     method="post">

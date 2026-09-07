@@ -482,3 +482,167 @@ a.btn-themes:hover,
     overflow: hidden;
     min-height: 56px;
 }
+
+/* =========================================
+   Mobile Hamburger & Overlay Menu
+   ========================================= */
+:root {
+    --header-height: 80px;
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1001;
+}
+
+.hamburger span {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: var(--text-dark);
+    border-radius: 3px;
+    transition: all 0.3s ease-in-out;
+}
+
+.hamburger.active span:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
+}
+
+@media (max-width: 991.98px) {
+    body {
+        overflow-x: hidden !important;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    /* Full-screen menu overlay */
+    #mainMenu {
+        position: fixed;
+        top: var(--header-height);
+        left: 0;
+        width: 100%;
+        height: calc(100vh - var(--header-height));
+        background-color: var(--white, #fff);
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+        transform: translateY(-100%);
+        opacity: 0;
+        visibility: hidden;
+        transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), visibility 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        z-index: 999;
+        overflow-y: auto;
+        display: block !important;
+    }
+
+    #mainMenu.active {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+    }
+
+    #mainMenu .navbar-nav {
+        flex-direction: column;
+        padding: 20px 24px;
+        gap: 0 !important;
+    }
+
+    #mainMenu .nav-item {
+        width: 100%;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    }
+    
+    #mainMenu .nav-item:last-child {
+        border-bottom: none;
+    }
+
+    #mainMenu .nav-link {
+        font-size: 16px !important;
+        padding: 15px 0 !important;
+        display: block;
+        width: 100%;
+    }
+    
+    #mainMenu .dropdown-menu {
+        border: none;
+        background: #f8f9fa;
+        margin: 0;
+        padding: 0;
+        border-radius: 8px;
+    }
+    
+    #mainMenu .dropdown-item {
+        padding: 12px 20px;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    }
+    
+    #mainMenu .dropdown-item:last-child {
+        border-bottom: none;
+    }
+}
+
+/* =========================================
+   Responsive Adjustments
+   ========================================= */
+@media (max-width: 767.98px) {
+    /* Responsive Typography */
+    h1, .display-3 {
+        font-size: 2.2rem !important;
+    }
+    
+    h2, .display-4 {
+        font-size: 1.8rem !important;
+    }
+    
+    h3 {
+        font-size: 1.5rem !important;
+    }
+    
+    /* Hero Banner Scaling */
+    #hero {
+        min-height: 50vh !important;
+        background-size: cover; /* cover allows cropping, but keeps it full width. */
+    }
+    
+    /* Reduce padding for sections */
+    .py-5 {
+        padding-top: 2rem !important;
+        padding-bottom: 2rem !important;
+    }
+    
+    .p-5 {
+        padding: 1.5rem !important;
+    }
+    
+    /* Adjust specific containers */
+    .about-us-warp {
+        padding: 20px;
+    }
+    
+    #banner #description {
+        width: 100%;
+        margin-left: 0;
+        text-align: center;
+    }
+    
+    /* Max-width resets */
+    .lead.mx-auto {
+        max-width: 100% !important;
+    }
+}

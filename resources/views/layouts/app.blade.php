@@ -25,8 +25,12 @@
     <link rel="stylesheet" type="text/css" href="asset/sweetalert2/sweetalert2.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap"
+        rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
 
@@ -65,50 +69,81 @@
                     <a class="navbar-brand" href="/">
                         <img src="upload/banner/logo1698075966.png" alt="Logo Kim Thành" height="50">
                     </a>
-                    <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#mainMenu" aria-controls="mainMenu" aria-expanded="false"
-                        aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
+                    <button class="hamburger d-lg-none" id="hamburger" type="button" aria-label="Toggle navigation">
+                        <span></span>
+                        <span></span>
+                        <span></span>
                     </button>
 
                     <div class="collapse navbar-collapse justify-content-center" id="mainMenu">
                         <ul class="navbar-nav gap-2 gap-lg-4 text-uppercase fw-semibold fs-6">
                             <li class="nav-item">
-                                <a class="nav-link {{ request()->is('/') ? 'active' : '' }}" href="/">Trang chủ</a>
+                                <a class="nav-link {{ request()->is('/') ? 'active' : '' }}" href="/">Trang
+                                    chủ</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link {{ request()->is('gioi-thieu.html') ? 'active' : '' }}" href="/gioi-thieu.html">Giới thiệu</a>
+                                <a class="nav-link {{ request()->is('gioi-thieu.html') ? 'active' : '' }}"
+                                    href="/gioi-thieu.html">Giới thiệu</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link {{ request()->is('san-pham.html', 'tra-xanh-pt11.html', 'vietnam-green-tea-*') ? 'active' : '' }}" href="/san-pham.html">Sản phẩm</a>
+                                <a class="nav-link {{ request()->is('san-pham.html', 'tra-xanh-pt11.html', 'vietnam-green-tea-*') ? 'active' : '' }}"
+                                    href="/san-pham.html">Sản phẩm</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link {{ request()->is('lien-he.html') ? 'active' : '' }}" href="/lien-he.html">Liên hệ</a>
+                                <a class="nav-link {{ request()->is('lien-he.html') ? 'active' : '' }}"
+                                    href="/lien-he.html">Liên hệ</a>
                             </li>
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle {{ request()->is('gallery.html') || request()->is('blog.html') || request()->is('others-news.html') ? 'active' : '' }}" href="#" id="blogDropdown" role="button"
-                                    data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false">
+                                <a class="nav-link dropdown-toggle {{ request()->is('gallery.html') || request()->is('blog.html') || request()->is('others-news.html') ? 'active' : '' }}"
+                                    href="#" id="blogDropdown" role="button" data-bs-toggle="dropdown"
+                                    data-bs-display="static" aria-expanded="false">
                                     Blog
                                 </a>
                                 <ul class="dropdown-menu border-0 shadow" aria-labelledby="blogDropdown">
-                                    <li><a class="dropdown-item {{ request()->is('gallery.html') ? 'active' : '' }}" href="/gallery.html">Thư viện ảnh</a></li>
-                                    <li><a class="dropdown-item {{ request()->is('blog.html') ? 'active' : '' }}" href="/blog.html">Tin tức</a></li>
-                                    <li><a class="dropdown-item {{ request()->is('others-news.html') ? 'active' : '' }}" href="/others-news.html">Tin khác</a></li>
+                                    <li><a class="dropdown-item {{ request()->is('gallery.html') ? 'active' : '' }}"
+                                            href="/gallery.html">Thư viện ảnh</a></li>
+                                    <li><a class="dropdown-item {{ request()->is('blog.html') ? 'active' : '' }}"
+                                            href="/blog.html">Tin tức</a></li>
+                                    <li><a class="dropdown-item {{ request()->is('others-news.html') ? 'active' : '' }}"
+                                            href="/others-news.html">Tin khác</a></li>
                                 </ul>
+                            </li>
+
+                            <!-- Mobile Language Switcher -->
+                            <li class="nav-item d-lg-none mt-4 pb-4">
+                                <div
+                                    class="d-flex align-items-center justify-content-center gap-3 bg-light rounded-pill py-2 w-100">
+                                    <a href="#"
+                                        class="text-success fw-bold text-decoration-none d-flex align-items-center">
+                                        VN <img
+                                            src="https://upload.wikimedia.org/wikipedia/commons/2/21/Flag_of_Vietnam.svg"
+                                            alt="VN" width="22" class="ms-1 rounded-1">
+                                    </a>
+                                    <span class="text-muted">|</span>
+                                    <a href="en/index.html"
+                                        class="text-secondary fw-bold text-decoration-none d-flex align-items-center">
+                                        EN <img
+                                            src="https://upload.wikimedia.org/wikipedia/en/a/ae/Flag_of_the_United_Kingdom.svg"
+                                            alt="EN" width="22" class="ms-1 rounded-1">
+                                    </a>
+                                </div>
                             </li>
                         </ul>
                     </div>
 
                     <div class="d-none d-lg-flex align-items-center">
                         <div class="dropdown">
-                            <button class="btn btn-outline-success dropdown-toggle rounded-pill px-3 fw-semibold" type="button"
-                                data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false">
-                                VN <img src="https://upload.wikimedia.org/wikipedia/commons/2/21/Flag_of_Vietnam.svg" alt="VN" width="22" class="ms-1 rounded-1">
+                            <button class="btn btn-outline-success dropdown-toggle rounded-pill px-3 fw-semibold"
+                                type="button" data-bs-toggle="dropdown" data-bs-display="static"
+                                aria-expanded="false">
+                                VN <img src="https://upload.wikimedia.org/wikipedia/commons/2/21/Flag_of_Vietnam.svg"
+                                    alt="VN" width="22" class="ms-1 rounded-1">
                             </button>
                             <ul class="dropdown-menu dropdown-menu-end border-0 shadow">
                                 <li><a class="dropdown-item d-flex align-items-center justify-content-between"
-                                        href="en/index.html">EN <img src="https://upload.wikimedia.org/wikipedia/en/a/ae/Flag_of_the_United_Kingdom.svg" alt="EN"
-                                            width="22" class="ms-1 rounded-1"></a></li>
+                                        href="en/index.html">EN <img
+                                            src="https://upload.wikimedia.org/wikipedia/en/a/ae/Flag_of_the_United_Kingdom.svg"
+                                            alt="EN" width="22" class="ms-1 rounded-1"></a></li>
                             </ul>
                         </div>
                     </div>
@@ -127,34 +162,39 @@
                             <img src="upload/banner/logo1698075966.png" alt="Logo Kim Thành" height="70"
                                 class="bg-white p-2 rounded shadow-sm">
                         </a>
-                        <h5 class="text-white mb-0 fw-bold text-nowrap fs-6">CÔNG TY TNHH ĐẦU TƯ THƯƠNG MẠI KIM THÀNH</h5>
+                        <h5 class="text-white mb-0 fw-bold text-nowrap fs-6">CÔNG TY TNHH ĐẦU TƯ THƯƠNG MẠI KIM THÀNH
+                        </h5>
                     </div>
 
                     <div class="col-lg-4 col-md-6 d-lg-flex justify-content-lg-center">
                         <ul class="list-unstyled mb-0">
-                            <li class="mb-3"><a href="gioi-thieu.html"
-                                    class="text-white text-decoration-none hover-white small">Giới thiệu</a></li>
-                            <li class="mb-3"><a href="san-pham.html"
-                                    class="text-white text-decoration-none hover-white small">Sản phẩm</a></li>
-                            <li class="mb-3"><a href="blog.html"
-                                    class="text-white text-decoration-none hover-white small">Tin tức</a></li>
-                            <li class="mb-0"><a href="lien-he.html"
-                                    class="text-white text-decoration-none hover-white small">Liên hệ</a></li>
+                            <li class="mb-3"><a href="gioi-thieu.html" class="text-white text-decoration-none hover-white small"><i class="fa-solid fa-chevron-right me-2" style="font-size: 0.8em;"></i> Giới thiệu</a></li>
+                            <li class="mb-3"><a href="san-pham.html" class="text-white text-decoration-none hover-white small"><i class="fa-solid fa-chevron-right me-2" style="font-size: 0.8em;"></i> Sản phẩm</a></li>
+                            <li class="mb-3"><a href="blog.html" class="text-white text-decoration-none hover-white small"><i class="fa-solid fa-chevron-right me-2" style="font-size: 0.8em;"></i> Tin tức</a></li>
+                            <li class="mb-0"><a href="lien-he.html" class="text-white text-decoration-none hover-white small"><i class="fa-solid fa-chevron-right me-2" style="font-size: 0.8em;"></i> Liên hệ</a></li>
                         </ul>
                     </div>
 
                     <div class="col-lg-4 col-md-6 d-lg-flex justify-content-lg-end">
                         <div>
-                            <p class="text-white small mb-3"><i class="fa-solid fa-location-dot me-2"></i> Xóm Chanh,
-                                Xã Sơn Hùng, Huyện Thanh Sơn, tỉnh Phú Thọ, Việt Nam.</p>
-                            <p class="text-white small mb-3"><i class="fa-solid fa-envelope me-2"></i> <a
-                                    href="mailto:kimthanhinvestmenttradingltd@gmail.com"
-                                    class="text-white text-decoration-none" style="letter-spacing: 0.5px;">kimthanhinvestmenttradingltd@gmail.com</a>
-                            </p>
-                            <p class="text-white small mb-3"><i class="fa-solid fa-phone me-2"></i> 0986843666 -
-                                0965748456</p>
-                            <p class="text-white small mb-0"><i class="fa-solid fa-building me-2"></i> MST 2601039326
-                                (Sở KH & ĐT Tỉnh Phú Thọ cấp 03/02/2020)</p>
+                            <div class="d-flex align-items-start mb-3">
+                                <i class="fa-solid fa-location-dot text-white mt-1 me-3" style="width: 16px; text-align: center; flex-shrink: 0;"></i>
+                                <div class="text-white small" style="flex: 1;">Xóm Chanh, Xã Sơn Hùng, Huyện Thanh Sơn, tỉnh Phú Thọ, Việt Nam.</div>
+                            </div>
+                            <div class="d-flex align-items-start mb-3">
+                                <i class="fa-solid fa-envelope text-white mt-1 me-3" style="width: 16px; text-align: center; flex-shrink: 0;"></i>
+                                <div style="flex: 1;">
+                                    <a href="mailto:kimthanhinvestmenttradingltd@gmail.com" class="text-white text-decoration-none small" style="letter-spacing: 0.5px; word-break: break-all;">kimthanhinvestmenttradingltd@gmail.com</a>
+                                </div>
+                            </div>
+                            <div class="d-flex align-items-start mb-3">
+                                <i class="fa-solid fa-phone text-white mt-1 me-3" style="width: 16px; text-align: center; flex-shrink: 0;"></i>
+                                <div class="text-white small" style="flex: 1;">0986843666 - 0965748456</div>
+                            </div>
+                            <div class="d-flex align-items-start mb-0">
+                                <i class="fa-solid fa-building text-white mt-1 me-3" style="width: 16px; text-align: center; flex-shrink: 0;"></i>
+                                <div class="text-white small" style="flex: 1;">MST 2601039326 (Sở KH & ĐT Tỉnh Phú Thọ cấp 03/02/2020)</div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -196,8 +236,31 @@
             once: true,
             offset: 100
         });
-    </script>
 
+        // Mobile Menu Logic
+        document.addEventListener('DOMContentLoaded', () => {
+            const hamburger = document.getElementById('hamburger');
+            const mainMenu = document.getElementById('mainMenu');
+            const header = document.querySelector('header');
+
+            if (hamburger && mainMenu) {
+                hamburger.addEventListener('click', () => {
+                    const isOpen = hamburger.classList.toggle('active');
+                    mainMenu.classList.toggle('active', isOpen);
+                    document.body.style.overflow = isOpen ? 'hidden' : '';
+                });
+
+                // Cập nhật biến CSS chiều cao header để menu trượt xuống đúng vị trí
+                function updateHeaderHeight() {
+                    if (header) {
+                        document.documentElement.style.setProperty('--header-height', header.offsetHeight + 'px');
+                    }
+                }
+                updateHeaderHeight();
+                window.addEventListener('resize', updateHeaderHeight);
+            }
+        });
+    </script>
 
 </body>
 
