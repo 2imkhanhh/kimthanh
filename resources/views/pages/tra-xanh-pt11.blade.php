@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@section('title', 'Trà xanh PT11')
 @section('content')
 
     <!-- HERO SECTION -->

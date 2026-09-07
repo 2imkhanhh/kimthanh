@@ -1,13 +1,14 @@
 @extends('layouts.app')
+@section('title', 'Liên hệ')
 @section('content')
 
     <!-- HERO SECTION -->
-    <section id="hero" class="d-flex align-items-center position-relative" style="background: url('upload/banner/lien-he1698571547.jpg') center/cover no-repeat; min-height: 40vh;">
+    <section id="hero" class="d-flex align-items-center position-relative vh-100" style="background: url('upload/banner/lien-he1698571547.jpg') center/cover no-repeat; min-height: 80vh;">
         
         
         <div class="container position-relative text-white z-index-1 text-center" data-aos="fade-up">
-            <h1 class="display-4 fw-bold mb-3 text-white">Liên hệ</h1>
-            <p class="lead mb-0 text-white-50 mx-auto">Giữ liên hệ với chúng tôi</p>
+            <h1 class="display-3 fw-bold mb-3 text-white">Liên hệ</h1>
+            <p class="lead mb-0 text-white mx-auto">Giữ liên hệ với chúng tôi</p>
         </div>
     </section>
 

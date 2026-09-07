@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@section('title', 'Trang chủ')
 @section('content')
     <!-- HERO SECTION -->
     <section id="hero" class="d-flex align-items-center position-relative vh-100"

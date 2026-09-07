@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@section('title', 'Thư viện ảnh')
 @section('content')
 
     <!-- HERO SECTION -->

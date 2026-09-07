@@ -177,7 +177,8 @@ header {
 }
 
 .dropdown-item:hover,
-.dropdown-item:focus {
+.dropdown-item:focus,
+.dropdown-item.active {
     background-color: rgba(144, 178, 57, 0.1);
     color: var(--primary-green);
 }

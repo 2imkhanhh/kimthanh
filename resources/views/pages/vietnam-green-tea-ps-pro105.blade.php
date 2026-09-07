@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@section('title', 'Vietnam Green Tea PS Pro105')
 @section('content')
 
     <!-- PRODUCT DETAILS SECTION -->
