@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Tin tức')
+@section('title', 'Blog')
 @section('content')
     <!-- HERO SECTION -->
     <section id="hero" class="d-flex align-items-center position-relative"
@@ -7,8 +7,7 @@
 
 
         <div class="container position-relative text-white z-index-1 text-center" data-aos="fade-up">
-            <h1 class="display-4 fw-bold mb-3 text-white">Tin tức</h1>
-            <p class="lead mb-0 text-white-50 mx-auto">Cập nhật những thông tin mới nhất từ Kim Thành</p>
+            <h1 class="display-4 fw-bold mb-3 text-white">Blog</h1>
         </div>
     </section>
 
@@ -26,10 +25,6 @@
                                     class="card-img-top w-100 object-fit-cover" alt="Người đi tìm màu xanh cho đất"
                                     style="height: 250px;">
                             </a>
-                            <div
-                                class="position-absolute top-0 start-0 m-3 bg-success text-white px-3 py-1 rounded-pill small fw-semibold">
-                                Tin tức
-                            </div>
                         </div>
                         <div class="card-body p-4 d-flex flex-column">
                             <h5 class="card-title mb-3 lh-base">
@@ -57,10 +52,6 @@
                                     class="card-img-top w-100 object-fit-cover"
                                     alt="Phát triển chè bền vững phải gắn với nông nghiệp sạch" style="height: 250px;">
                             </a>
-                            <div
-                                class="position-absolute top-0 start-0 m-3 bg-success text-white px-3 py-1 rounded-pill small fw-semibold">
-                                Tin tức
-                            </div>
                         </div>
                         <div class="card-body p-4 d-flex flex-column">
                             <h5 class="card-title mb-3 lh-base">
@@ -88,10 +79,6 @@
                                     class="card-img-top w-100 object-fit-cover"
                                     alt="Những lợi ích có thể bạn chưa biết về chè xanh" style="height: 250px;">
                             </a>
-                            <div
-                                class="position-absolute top-0 start-0 m-3 bg-success text-white px-3 py-1 rounded-pill small fw-semibold">
-                                Kiến thức
-                            </div>
                         </div>
                         <div class="card-body p-4 d-flex flex-column">
                             <h5 class="card-title mb-3 lh-base">
@@ -119,10 +106,6 @@
                                     class="card-img-top w-100 object-fit-cover" alt="Người đi tìm màu xanh cho đất"
                                     style="height: 250px;">
                             </a>
-                            <div
-                                class="position-absolute top-0 start-0 m-3 bg-success text-white px-3 py-1 rounded-pill small fw-semibold">
-                                Tin tức
-                            </div>
                         </div>
                         <div class="card-body p-4 d-flex flex-column">
                             <h5 class="card-title mb-3 lh-base">
@@ -150,10 +133,6 @@
                                     class="card-img-top w-100 object-fit-cover"
                                     alt="Phát triển chè bền vững phải gắn với nông nghiệp sạch" style="height: 250px;">
                             </a>
-                            <div
-                                class="position-absolute top-0 start-0 m-3 bg-success text-white px-3 py-1 rounded-pill small fw-semibold">
-                                Tin tức
-                            </div>
                         </div>
                         <div class="card-body p-4 d-flex flex-column">
                             <h5 class="card-title mb-3 lh-base">
@@ -179,12 +158,8 @@
                             <a href="blog/nhung-loi-ich-co-the-ban-chua-biet-ve-che-xanh-264.html">
                                 <img src="upload/post/thumbs/nhung-loi-ich-co-the-ban-chua-biet-ve-che-xanh1745404885.jpg"
                                     class="card-img-top w-100 object-fit-cover"
-                                    alt="Những lợi ích có thể bạn chưa biết về chè xanh" style="height: 220px;">
+                                    alt="Những lợi ích có thể bạn chưa biết về chè xanh" style="height: 250px;">
                             </a>
-                            <div
-                                class="position-absolute top-0 start-0 m-3 bg-success text-white px-3 py-1 rounded-pill small fw-semibold">
-                                Kiến thức
-                            </div>
                         </div>
                         <div class="card-body p-4 d-flex flex-column">
                             <h5 class="card-title mb-3 lh-base">

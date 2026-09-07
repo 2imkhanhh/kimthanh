@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Tin tức khác')
+@section('title', 'Blog')
 @section('content')
 
     <!-- HERO SECTION -->
@@ -7,8 +7,7 @@
         
         
         <div class="container position-relative text-white z-index-1 text-center" data-aos="fade-up">
-            <h1 class="display-4 fw-bold mb-3 text-white">Tin khác</h1>
-            <p class="lead mb-0 text-white-50 mx-auto">Tin tức hoạt động nội bộ và các hoạt động khác</p>
+            <h1 class="display-4 fw-bold mb-3 text-white">Blog</h1>
         </div>
     </section>
 
@@ -24,9 +23,6 @@
                             <a href="others-news/nguoi-di-tim-mau-xanh-cho-dat-265.html">
                                 <img src="upload/post/thumbs/nguoi-di-tim-mau-xanh-cho-dat1745404857.jpg" class="card-img-top w-100 object-fit-cover" alt="Người đi tìm màu xanh cho đất" style="height: 250px;">
                             </a>
-                            <div class="position-absolute top-0 start-0 m-3 bg-success text-white px-3 py-1 rounded-pill small fw-semibold">
-                                Tin khác
-                            </div>
                         </div>
                         <div class="card-body p-4 d-flex flex-column">
                             <h5 class="card-title mb-3 lh-base">
@@ -47,9 +43,6 @@
                             <a href="others-news/phat-trien-che-ben-vung-phai-gan-voi-nong-nghiep-sach-266.html">
                                 <img src="upload/post/thumbs/phat-trien-che-ben-vung-phai-gan-voi-nong-nghiep-sach1745404872.jpg" class="card-img-top w-100 object-fit-cover" alt="Phát triển chè bền vững phải gắn với nông nghiệp sạch" style="height: 250px;">
                             </a>
-                            <div class="position-absolute top-0 start-0 m-3 bg-success text-white px-3 py-1 rounded-pill small fw-semibold">
-                                Tin khác
-                            </div>
                         </div>
                         <div class="card-body p-4 d-flex flex-column">
                             <h5 class="card-title mb-3 lh-base">
@@ -70,9 +63,6 @@
                             <a href="others-news/nhung-loi-ich-co-the-ban-chua-biet-ve-che-xanh-267.html">
                                 <img src="upload/post/thumbs/nhung-loi-ich-co-the-ban-chua-biet-ve-che-xanh1745404885.jpg" class="card-img-top w-100 object-fit-cover" alt="Những lợi ích có thể bạn chưa biết về chè xanh" style="height: 250px;">
                             </a>
-                            <div class="position-absolute top-0 start-0 m-3 bg-success text-white px-3 py-1 rounded-pill small fw-semibold">
-                                Tin khác
-                            </div>
                         </div>
                         <div class="card-body p-4 d-flex flex-column">
                             <h5 class="card-title mb-3 lh-base">

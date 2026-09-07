@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Thư viện ảnh')
+@section('title', 'Blog')
 @section('content')
 
     <!-- HERO SECTION -->
@@ -7,8 +7,7 @@
         
         
         <div class="container position-relative text-white z-index-1 text-center" data-aos="fade-up">
-            <h1 class="display-4 fw-bold mb-3 text-white">Thư viện ảnh</h1>
-            <p class="lead mb-0 text-white-50 mx-auto">Những khoảnh khắc đẹp tại Kim Thành</p>
+            <h1 class="display-4 fw-bold mb-3 text-white">Blog</h1>
         </div>
     </section>
 

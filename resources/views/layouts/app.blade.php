@@ -84,14 +84,14 @@
                                 <a class="nav-link {{ request()->is('gioi-thieu.html') ? 'active' : '' }}" href="/gioi-thieu.html">Giới thiệu</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link {{ request()->is('san-pham.html') ? 'active' : '' }}" href="/san-pham.html">Sản phẩm</a>
+                                <a class="nav-link {{ request()->is('san-pham.html', 'tra-xanh-pt11.html', 'vietnam-green-tea-*') ? 'active' : '' }}" href="/san-pham.html">Sản phẩm</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link {{ request()->is('lien-he.html') ? 'active' : '' }}" href="/lien-he.html">Liên hệ</a>
                             </li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle {{ request()->is('gallery.html') || request()->is('blog.html') || request()->is('others-news.html') ? 'active' : '' }}" href="#" id="blogDropdown" role="button"
-                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false">
                                     Blog
                                 </a>
                                 <ul class="dropdown-menu border-0 shadow" aria-labelledby="blogDropdown">
@@ -106,7 +106,7 @@
                     <div class="d-none d-lg-flex align-items-center">
                         <div class="dropdown">
                             <button class="btn btn-outline-success dropdown-toggle rounded-pill px-3 fw-semibold" type="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">
+                                data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false">
                                 VN <img src="https://upload.wikimedia.org/wikipedia/commons/2/21/Flag_of_Vietnam.svg" alt="VN" width="22" class="ms-1 rounded-1">
                             </button>
                             <ul class="dropdown-menu dropdown-menu-end border-0 shadow">
