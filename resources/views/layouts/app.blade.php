@@ -17,12 +17,12 @@
     <meta property="og:image" content="images/thumbs.png">
     <meta property="og:site_name" content="Tin tức KIM THÀNH">
     <link rel="canonical" href="@yield('canonical', 'https://kimthanhintc.com/blog.html')">
-    <link rel="shortcut icon" href="images/favicon.png">
-    <link rel="stylesheet" href="asset/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="asset/bootstrap-icons/bootstrap-icons.min.css">
-    <link rel="stylesheet" href="asset/jquery-ui/jquery-ui.min.css">
-    <link rel="stylesheet" href="asset/font-awesome/css/all.min.css">
-    <link rel="stylesheet" type="text/css" href="asset/sweetalert2/sweetalert2.min.css">
+    <link rel="shortcut icon" href="{{ asset('images/favicon.png') }}">
+    <link rel="stylesheet" href="{{ asset('asset/bootstrap/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('asset/bootstrap-icons/bootstrap-icons.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('asset/jquery-ui/jquery-ui.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('asset/font-awesome/css/all.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('asset/sweetalert2/sweetalert2.min.css') }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
     <link
@@ -36,6 +36,8 @@
 
     <link rel="stylesheet" href="{{ asset('css/modern-ui.css?v=' . time()) }}">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    @yield('styles')
 </head>
 
 <body>
@@ -60,7 +62,7 @@
             <nav class="navbar navbar-expand-lg navbar-light py-3">
                 <div class="container">
                     <a class="navbar-brand" href="/">
-                        <img src="upload/banner/logo1698075966.png" alt="Logo Kim Thành" height="50">
+                        <img src="{{ asset('upload/banner/logo1698075966.png') }}" alt="Logo Kim Thành" height="50">
                     </a>
                     <button class="hamburger d-lg-none" id="hamburger" type="button" aria-label="Toggle navigation"
                         style="color: var(--text-dark);">
@@ -140,10 +142,13 @@
                                     alt="VN" width="22" class="ms-1 rounded-1">
                             </button>
                             <ul class="dropdown-menu dropdown-menu-end border-0 shadow">
-                                <li><a class="dropdown-item d-flex align-items-center justify-content-between"
-                                        href="en/index.html">EN <img
-                                            src="https://upload.wikimedia.org/wikipedia/en/a/ae/Flag_of_the_United_Kingdom.svg"
-                                            alt="EN" width="22" class="ms-1 rounded-1"></a></li>
+                                <li>
+                                    <a class="dropdown-item d-flex align-items-center" href="/en/index.html">
+                                        <img class="flagimg me-1" src="{{ asset('images/flag_en.jpg') }}"
+                                            alt="EN" style="width: 20px; border-radius: 2px;">
+                                        <span>EN</span>
+                                    </a>
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -159,7 +164,7 @@
                 <div class="row g-4 mb-4">
                     <div class="col-lg-4 col-md-12">
                         <a href="/" class="d-inline-block mb-3">
-                            <img src="upload/banner/logo1698075966.png" alt="Logo Kim Thành" height="70"
+                            <img src="{{ asset('upload/banner/logo1698075966.png') }}" alt="Logo Kim Thành" height="70"
                                 class="bg-white p-2 rounded shadow-sm">
                         </a>
                         <h5 class="text-white mb-0 fw-bold text-nowrap fs-6">CÔNG TY TNHH ĐẦU TƯ THƯƠNG MẠI KIM THÀNH
@@ -241,13 +246,13 @@
         var is_mobile = false;
         var page_name = "post1";
     </script>
-    <script type="text/javascript" src="js/jquery-3.6.1.min.js"></script>
-    <script type="text/javascript" src="asset/jquery-ui/jquery-ui.min.js"></script>
-    <script type="text/javascript" src="asset/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="asset/sweetalert2/sweetalert2.all.min.js" type="text/javascript"></script>
-    <script type="text/javascript" src="js/loading.js"></script>
-    <script type="text/javascript" src="js/functions.js"></script>
-    <script type="text/javascript" src="js/js_v%3D1.2.js"></script>
+    <script type="text/javascript" src="{{ asset('js/jquery-3.6.1.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('asset/jquery-ui/jquery-ui.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('asset/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('asset/sweetalert2/sweetalert2.all.min.js') }}" type="text/javascript"></script>
+    <script type="text/javascript" src="{{ asset('js/loading.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/functions.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/js_v%3D1.2.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/nav_v=1.1.js') }}"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
@@ -281,7 +286,8 @@
             }
         });
     </script>
-
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    @yield('scripts')
 </body>
 
 </html>

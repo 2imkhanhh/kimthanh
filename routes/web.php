@@ -45,6 +45,21 @@ Route::get('/vietnam-green-tea-ps-pro105.html', function () {
     return view('pages.vietnam-green-tea-ps-pro105');
 });
 
+// Blog and News Detail Routes
+Route::get('/blog/{slug}.html', function ($slug) {
+    if (view()->exists('pages.blog.' . $slug)) {
+        return view('pages.blog.' . $slug);
+    }
+    abort(404);
+});
+
+Route::get('/others-news/{slug}.html', function ($slug) {
+    if (view()->exists('pages.others-news.' . $slug)) {
+        return view('pages.others-news.' . $slug);
+    }
+    abort(404);
+});
+
 
 
 use App\Http\Controllers\ProfileController;
