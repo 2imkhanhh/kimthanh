@@ -95,7 +95,7 @@
                                     href="{{ route('contact') }}">{{ app()->getLocale() == 'en' ? 'Contact' : 'Liên hệ' }}</a>
                             </li>
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle {{ request()->routeIs('gallery', 'blog', 'blog.khac', 'blog.tin-tuc') ? 'active' : '' }}"
+                                <a class="nav-link dropdown-toggle {{ request()->routeIs('gallery', 'blog', 'blog.khac', 'blog.tin-tuc', 'blog.detail') ? 'active' : '' }}"
                                     href="#" id="blogDropdown" role="button" data-bs-toggle="dropdown"
                                     data-bs-display="static" aria-expanded="false">
                                     Blog

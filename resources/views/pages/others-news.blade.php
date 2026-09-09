@@ -22,14 +22,14 @@
                         <div class="position-relative overflow-hidden rounded-top-4">
                             <a href="{{ route('blog.detail', $post->slug) }}">
                                 <img src="{{ $post->getFirstMediaUrl('posts') ?: asset('images/no-image.jpg') }}"
-                                    class="card-img-top w-100 object-fit-cover" alt="{{ $post->getTranslation('name', app()->getLocale()) }}"
+                                    class="card-img-top w-100 object-fit-cover" alt="{{ $post->getTranslation('title', app()->getLocale()) }}"
                                     style="height: 250px;">
                             </a>
                         </div>
                         <div class="card-body p-4 d-flex flex-column">
                             <h5 class="card-title mb-3 lh-base">
                                 <a href="{{ route('blog.detail', $post->slug) }}"
-                                    class="text-dark text-decoration-none fw-semibold blog-title">{{ $post->getTranslation('name', app()->getLocale()) }}</a>
+                                    class="text-dark text-decoration-none fw-semibold blog-title">{{ $post->getTranslation('title', app()->getLocale()) }}</a>
                             </h5>
                             <div class="mt-auto d-flex justify-content-between align-items-center pt-3 border-top">
                                 <span class="text-muted small"><i

@@ -17,8 +17,16 @@
                         </div>
                         
                         @if(count($relatedPosts) > 0)
-                        <div class="mt-5 pt-4 border-top related-slider-wrapper position-relative">
-                            <h4 class="fw-bold mb-4" style="color: var(--primary-green);">{{ app()->getLocale() == 'en' ? 'Related Posts' : 'Bài viết khác' }}</h4>
+                        <div class="mt-5 pt-4 border-top related-slider-wrapper">
+                            <div class="d-flex justify-content-between align-items-center mb-4">
+                                <h4 class="fw-bold mb-0" style="color: var(--primary-green);">{{ app()->getLocale() == 'en' ? 'Related Posts' : 'Bài viết khác' }}</h4>
+                                @if(count($relatedPosts) > 3)
+                                <div class="swiper-navigation d-flex gap-2 user-select-none">
+                                    <button class="btn btn-outline-success rounded-circle swiper-prev-related-posts d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;"><i class="fa-solid fa-chevron-left"></i></button>
+                                    <button class="btn btn-outline-success rounded-circle swiper-next-related-posts d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;"><i class="fa-solid fa-chevron-right"></i></button>
+                                </div>
+                                @endif
+                            </div>
                             <div class="swiper related-posts-swiper pb-4">
                                 <div class="swiper-wrapper">
                                     @foreach($relatedPosts as $related)
@@ -43,13 +51,7 @@
                                     @endforeach
                                 </div>
                             </div>
-                            <!-- Swiper navigation buttons if needed -->
-                            <div class="swiper-button-prev-custom btn btn-success rounded-circle d-flex align-items-center justify-content-center shadow d-none d-md-flex" style="position: absolute; top: 55%; left: -25px; transform: translateY(-50%); width: 45px; height: 45px; cursor: pointer; z-index: 10;">
-                                <i class="fa-solid fa-chevron-left"></i>
-                            </div>
-                            <div class="swiper-button-next-custom btn btn-success rounded-circle d-flex align-items-center justify-content-center shadow d-none d-md-flex" style="position: absolute; top: 55%; right: -25px; transform: translateY(-50%); width: 45px; height: 45px; cursor: pointer; z-index: 10;">
-                                <i class="fa-solid fa-chevron-right"></i>
-                            </div>
+
                         </div>
                         @endif
                         
@@ -59,4 +61,29 @@
         </div>
     </div>
 </section>
+@endsection
+
+@section('scripts')
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const swiperContainer = document.querySelector('.related-slider-wrapper');
+    if (swiperContainer) {
+        swiperContainer.classList.add('user-select-none');
+    }
+    
+    var relatedPostsSwiper = new Swiper('.related-posts-swiper', {
+        slidesPerView: 1,
+        spaceBetween: 20,
+        navigation: {
+            nextEl: '.swiper-next-related-posts',
+            prevEl: '.swiper-prev-related-posts',
+        },
+        breakpoints: {
+            576: { slidesPerView: 2 },
+            768: { slidesPerView: 2 },
+            992: { slidesPerView: 3 }
+        }
+    });
+});
+</script>
 @endsection

@@ -5,7 +5,7 @@
     <section id="hero" class="d-flex align-items-center position-relative"
         style="background: url('upload/banner/gioi-thieu1698571489.jpg') center/cover no-repeat; min-height: 40vh;">
         <div class="container position-relative text-white z-index-1 text-center" data-aos="fade-up">
-            <h1 class="display-4 fw-bold mb-3 text-white">Blog</h1>
+            <h1 class="display-4 fw-bold mb-3 text-white">{{ app()->getLocale() == 'en' ? 'Gallery' : 'Thư viện ảnh' }}</h1>
         </div>
     </section>
 

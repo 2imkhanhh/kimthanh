@@ -97,7 +97,6 @@ class FrontendController extends Controller
             ->where('id', '!=', $post->id)
             ->where('is_active', true)
             ->latest()
-            ->take(4)
             ->get();
             
         return view('pages.chi-tiet-bai-viet', compact('settings', 'post', 'relatedPosts'));
