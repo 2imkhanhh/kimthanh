@@ -3,8 +3,8 @@
 @section('content')
 
     <!-- HERO SECTION -->
-    <section id="hero" class="d-flex align-items-center position-relative"
-        style="background: url('{{ isset($settings['product_hero_image']) && $settings['product_hero_image'] ? asset($settings['product_hero_image']) : asset('upload/banner/san-pham1698571509.jpg') }}') center/cover no-repeat; min-height: 40vh;">
+    <section id="hero" class="d-flex align-items-center position-relative vh-100"
+        style="background: url('{{ isset($settings['product_hero_image']) && $settings['product_hero_image'] ? asset($settings['product_hero_image']) : asset('upload/banner/san-pham1698571509.jpg') }}') center/cover no-repeat; min-height: 80vh;">
         <div class="container position-relative text-white z-index-1 text-center" data-aos="fade-up">
             <h1 class="display-3 fw-bold mb-3 text-white">{{ $settings['product_hero_title'] ?? 'Sản phẩm' }}</h1>
             <div class="lead mb-0 text-white mx-auto" style="max-width: 800px;">{!! $settings['product_hero_desc'] ?? 'Chất lượng là nền tảng: Luôn đặt chất lượng sản phẩm lên hàng đầu...' !!}</div>
@@ -16,22 +16,26 @@
         <div class="container py-4">
 
             <!-- Tabs Navigation -->
-            <ul class="nav nav-pills justify-content-center mb-5" id="productTabs" role="tablist" data-aos="fade-up">
-                <li class="nav-item" role="presentation">
-                    <button class="nav-link active px-4 py-2 rounded-pill shadow-sm" id="nav-greentea-tab"
-                        data-bs-toggle="tab" data-bs-target="#nav-greentea" type="button" role="tab"
-                        aria-controls="nav-greentea" aria-selected="true">
-                        <i class="fa-solid fa-leaf me-2"></i>{{ app()->getLocale() == 'en' ? 'Green Tea' : 'Trà xanh' }}
-                    </button>
+            <ul class="nav nav-pills justify-content-center mb-5 gap-3" id="productTabs" data-aos="fade-up">
+                <li class="nav-item">
+                    <a href="{{ route('products') }}" class="nav-link {{ !$activeCategoryId ? 'active' : 'bg-white text-secondary' }} px-4 py-2 rounded-pill shadow-sm">
+                        <i class="fa-solid fa-leaf me-2"></i>{{ app()->getLocale() == 'en' ? 'All Products' : 'Tất cả sản phẩm' }}
+                    </a>
                 </li>
-                <!-- Future categories can go here -->
+                @if(isset($categories) && $categories->count() > 0)
+                    @foreach($categories as $cat)
+                    <li class="nav-item">
+                        <a href="{{ route('products', ['category' => $cat->id]) }}" class="nav-link {{ $activeCategoryId == $cat->id ? 'active' : 'bg-white text-secondary' }} px-4 py-2 rounded-pill shadow-sm">
+                            <i class="fa-solid fa-leaf me-2"></i>{{ $cat->getTranslation('name', app()->getLocale()) }}
+                        </a>
+                    </li>
+                    @endforeach
+                @endif
             </ul>
 
             <!-- Tabs Content -->
             <div class="tab-content" id="productTabsContent">
-                <!-- Green Tea Tab -->
-                <div class="tab-pane fade show active" id="nav-greentea" role="tabpanel" aria-labelledby="nav-greentea-tab"
-                    tabindex="0">
+                <div class="tab-pane fade show active">
                     <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
 
                         @foreach($products as $index => $product)

@@ -29,11 +29,24 @@ class FrontendController extends Controller
         return view('pages.gioi-thieu', compact('settings'));
     }
 
-    public function products()
+    public function products(Request $request)
     {
         $settings = $this->getSettings();
-        $products = Product::where('is_active', true)->latest()->paginate(12);
-        return view('pages.san-pham', compact('settings', 'products'));
+        
+        $activeCategoryId = $request->query('category');
+        
+        $categories = \App\Models\Category::whereHas('products', function($q) {
+            $q->where('is_active', true);
+        })->get();
+        
+        $query = Product::where('is_active', true);
+        if ($activeCategoryId) {
+            $query->where('category_id', $activeCategoryId);
+        }
+        
+        $products = $query->latest()->paginate(12)->withQueryString();
+        
+        return view('pages.san-pham', compact('settings', 'products', 'categories', 'activeCategoryId'));
     }
 
     public function productDetail($slug)
