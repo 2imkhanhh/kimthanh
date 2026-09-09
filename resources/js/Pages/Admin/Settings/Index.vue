@@ -321,8 +321,7 @@ const submit = () => {
                     <h3 class="text-lg font-semibold mb-4 border-b pb-2 mt-8">Nội dung Giới thiệu</h3>
                     <div class="space-y-8">
                         <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-1">Mô tả ngắn (Giới thiệu đầu
-                                trang)</label>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Mô tả ngắn </label>
                             <textarea v-model="form.about_short[activeLang]" rows="4"
                                 class="w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500"></textarea>
                         </div>
@@ -330,10 +329,8 @@ const submit = () => {
                         <div>
                             <label class="block text-sm font-medium text-gray-700 mb-1">Nội dung giới thiệu chi
                                 tiết</label>
-                            <div class="h-64 mb-12">
-                                <QuillEditor :key="activeLang" v-model:content="form.about_long[activeLang]"
-                                    contentType="html" theme="snow" />
-                            </div>
+                            <textarea v-model="form.about_long[activeLang]" rows="8"
+                                class="w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500"></textarea>
                         </div>
 
                         <div class="mt-8 border-t pt-6">
@@ -372,10 +369,8 @@ const submit = () => {
 
                         <div>
                             <label class="block text-sm font-medium text-gray-700 mb-1">Văn hóa công ty</label>
-                            <div class="h-64 mb-12">
-                                <QuillEditor :key="activeLang" v-model:content="form.company_culture[activeLang]"
-                                    contentType="html" theme="snow" />
-                            </div>
+                            <textarea v-model="form.company_culture[activeLang]" rows="4"
+                                class="w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500"></textarea>
                         </div>
                     </div>
                 </div>

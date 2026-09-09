@@ -4,8 +4,6 @@
     <!-- HERO SECTION -->
     <section id="hero" class="d-flex align-items-center position-relative vh-100"
         style="background: url('upload/banner/tra-viet-nam-la-nghe-si1698571462.jpg') center/cover no-repeat; min-height: 80vh;">
-
-
         <div class="container position-relative text-white z-index-1" data-aos="fade-up">
             <div class="row">
                 <div class="col-lg-9 col-md-12 bg-dark bg-opacity-50 p-4 p-lg-5 rounded-4 glass-effect">

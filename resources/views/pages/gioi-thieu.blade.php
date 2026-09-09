@@ -2,7 +2,7 @@
 @section('title', app()->getLocale() == 'en' ? 'About Us' : 'Giới thiệu')
 @section('content')
     <section id="hero" class="d-flex align-items-center position-relative vh-100"
-        style="background: url('upload/banner/gioi-thieu1698571489.jpg') center/cover no-repeat; min-height: 80vh;">
+        style="background: url('{{ isset($settings['about_hero_image']) && $settings['about_hero_image'] ? asset($settings['about_hero_image']) : asset('upload/banner/gioi-thieu1698571489.jpg') }}') center/cover no-repeat; min-height: 80vh;">
         <div class="container position-relative text-white z-index-1 text-center" data-aos="fade-up">
             <h1 class="display-3 fw-bold mb-3 text-white">{{ $settings['about_hero_title'] ?? 'Giới thiệu Kim Thành' }}</h1>
             <div class="lead mb-0 text-white mx-auto" style="max-width: 800px;">{!! $settings['about_hero_desc'] ?? 'Chúng tôi luôn đặt chất lượng và an toàn thực phẩm lên hàng đầu...' !!}</div>
@@ -13,14 +13,16 @@
         <div class="container py-4">
             <div class="row align-items-center g-5">
                 <div class="col-lg-6" data-aos="fade-right">
-                    <img src="upload/post/thumbs/about-us1698082096.png" alt="Giới thiệu"
+                    <img src="{{ isset($settings['home_about_image']) && $settings['home_about_image'] ? asset($settings['home_about_image']) : asset('upload/post/thumbs/about-us1698082096.png') }}" alt="Giới thiệu"
                         class="img-fluid rounded-4 shadow-lg w-100 object-fit-cover">
                 </div>
                 <div class="col-lg-6" data-aos="fade-left">
                     <h2 class="display-4 text-success text-uppercase fw-bold mb-2">{{ app()->getLocale() == 'en' ? 'About Us' : 'Về Chúng Tôi' }}</h2>
-                    <h4 class="fw-bold mb-4 text-success opacity-75">{{ $settings['home_about_title'] ?? 'Công ty TNHH Đầu tư Thương mại Kim Thành' }}</h4>
+                    <h4 class="fw-bold mb-4 text-success opacity-75">
+                        {!! nl2br(e($settings['about_short'] ?? 'Giới thiệu ngắn về Kim Thành')) !!}
+                    </h4>
                     <div class="text-muted fs-5 mb-4">
-                        {!! $settings['about_content_1'] ?? $settings['about_long'] ?? 'Nội dung giới thiệu' !!}
+                        {!! !empty($settings['about_long']) ? nl2br(e($settings['about_long'])) : 'Nội dung giới thiệu chi tiết' !!}
                     </div>
             </div>
         </div>
@@ -36,7 +38,7 @@
                 <div class="col-lg-7" data-aos="fade-left">
                     <h2 class="display-4 text-success text-uppercase fw-bold mb-4">{{ app()->getLocale() == 'en' ? 'Vision' : 'Tầm nhìn' }}</h2>
                     <div class="text-muted fs-5 mb-0">
-                        {!! $settings['vision'] ?? 'Tầm nhìn của công ty...' !!}
+                        {!! nl2br(e($settings['vision'] ?? 'Tầm nhìn của công ty...')) !!}
                     </div>
                 </div>
             </div>
@@ -49,7 +51,7 @@
                 <div class="col-lg-7 order-2 order-lg-1" data-aos="fade-right">
                     <h2 class="display-4 text-success text-uppercase fw-bold mb-4">{{ app()->getLocale() == 'en' ? 'Mission' : 'Sứ mệnh' }}</h2>
                     <div class="text-muted fs-5 mb-0">
-                        {!! $settings['mission'] ?? 'Sứ mệnh của công ty...' !!}
+                        {!! nl2br(e($settings['mission'] ?? 'Sứ mệnh của công ty...')) !!}
                     </div>
                 </div>
                 <div class="col-lg-5 order-1 order-lg-2 text-center text-lg-end" data-aos="fade-left">
@@ -71,7 +73,7 @@
                 <div class="col-lg-7" data-aos="fade-left">
                     <h2 class="display-4 text-success text-uppercase fw-bold mb-4">{{ app()->getLocale() == 'en' ? 'Company Culture' : 'Văn hoá công ty' }}</h2>
                     <div class="text-muted fs-5 mb-0">
-                        {!! $settings['company_culture'] ?? 'Văn hoá công ty...' !!}
+                        {!! nl2br(e($settings['company_culture'] ?? 'Văn hoá công ty...')) !!}
                     </div>
                 </div>
             </div>

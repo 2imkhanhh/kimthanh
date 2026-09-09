@@ -62,7 +62,7 @@
             <nav class="navbar navbar-expand-lg navbar-light py-3">
                 <div class="container">
                     <a class="navbar-brand" href="/">
-                        <img src="{{ asset('upload/banner/logo1698075966.png') }}" alt="Logo Kim Thành" height="50">
+                        <img src="{{ isset($settings['logo']) && $settings['logo'] ? asset($settings['logo']) : asset('upload/banner/logo1698075966.png') }}" alt="Logo Kim Thành" height="50">
                     </a>
                     <button class="hamburger d-lg-none" id="hamburger" type="button" aria-label="Toggle navigation"
                         style="color: var(--text-dark);">
@@ -163,7 +163,7 @@
                 <div class="row g-4 mb-4">
                     <div class="col-lg-4 col-md-12">
                         <a href="{{ route('home') }}" class="d-inline-block mb-3">
-                            <img src="{{ asset('upload/banner/logo1698075966.png') }}" alt="Logo Kim Thành" height="70"
+                            <img src="{{ isset($settings['footer_logo']) && $settings['footer_logo'] ? asset($settings['footer_logo']) : asset('upload/banner/logo1698075966.png') }}" alt="Logo Kim Thành" height="70"
                                 class="bg-white p-2 rounded shadow-sm">
                         </a>
                         <h5 class="text-white mb-0 fw-bold text-nowrap fs-6">{{ $settings['company_name'] ?? 'CÔNG TY TNHH ĐẦU TƯ THƯƠNG MẠI KIM THÀNH' }}
