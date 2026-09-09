@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="icon" type="image/png" href="{{ asset('assets/images/common/logo.png') }}">
+        <link rel="shortcut icon" href="{{ asset('images/favicon.png') }}">
 
         <title inertia>{{ config('app.name', 'Tân Bình Tea') }}</title>
 

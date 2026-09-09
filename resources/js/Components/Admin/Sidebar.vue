@@ -10,7 +10,7 @@ const isActive = (routePattern) => {
     <aside class="sidebar">
         <div class="sidebar-header">
             <Link :href="route('dashboard')" class="brand">
-                <img src="/upload/banner/logo1698075966.png" alt="Logo" class="logo" />
+                <img :src="'/' + $page.props.global_settings.logo" alt="Logo" class="logo" />
             </Link>
         </div>
 

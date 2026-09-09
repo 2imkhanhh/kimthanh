@@ -39,6 +39,9 @@ class HandleInertiaRequests extends Middleware
                 'success' => fn () => $request->session()->get('success'),
                 'error' => fn () => $request->session()->get('error'),
             ],
+            'global_settings' => fn () => [
+                'logo' => \App\Models\Setting::where('key', 'logo')->value('value') ?? 'upload/banner/logo1698075966.png',
+            ],
         ];
     }
 }

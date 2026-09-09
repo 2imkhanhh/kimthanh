@@ -64,9 +64,10 @@ const form = useForm({
     about_hero_desc: getSetting('about_hero_desc'),
     about_short: getSetting('about_short'),
     about_long: getSetting('about_long'),
+    about_extended: getSetting('about_extended'),
     core_values: {
-        vi: Array.isArray(props.settings['core_values']?.vi) ? props.settings['core_values'].vi : [],
-        en: Array.isArray(props.settings['core_values']?.en) ? props.settings['core_values'].en : []
+        vi: Array.isArray(props.settings['core_values']?.vi) ? props.settings['core_values'].vi.map(v => typeof v === 'string' ? { title: v, content: '' } : v) : [],
+        en: Array.isArray(props.settings['core_values']?.en) ? props.settings['core_values'].en.map(v => typeof v === 'string' ? { title: v, content: '' } : v) : []
     },
     vision: getSetting('vision'),
     mission: getSetting('mission'),
@@ -89,8 +90,8 @@ const form = useForm({
 });
 
 const addCoreValue = () => {
-    form.core_values.vi.push('');
-    form.core_values.en.push('');
+    form.core_values.vi.push({ title: '', content: '' });
+    form.core_values.en.push({ title: '', content: '' });
 };
 const removeCoreValue = (index) => {
     form.core_values.vi.splice(index, 1);
@@ -333,6 +334,12 @@ const submit = () => {
                                 class="w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500"></textarea>
                         </div>
 
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Nội dung giới thiệu mở rộng (hiển thị phần dưới)</label>
+                            <textarea v-model="form.about_extended[activeLang]" rows="6"
+                                class="w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500"></textarea>
+                        </div>
+
                         <div class="mt-8 border-t pt-6">
                             <div class="flex justify-between items-center mb-4">
                                 <label class="block text-lg font-medium text-gray-700">Giá trị cốt lõi</label>
@@ -342,12 +349,17 @@ const submit = () => {
                                 </button>
                             </div>
 
-                            <div v-for="(val, idx) in form.core_values[activeLang]" :key="idx" class="flex gap-2 mb-3">
-                                <input v-model="form.core_values[activeLang][idx]" type="text"
-                                    class="flex-1 rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500"
-                                    placeholder="Nhập giá trị cốt lõi...">
+                            <div v-for="(val, idx) in form.core_values[activeLang]" :key="idx" class="flex gap-2 mb-3 bg-gray-50 p-3 rounded border">
+                                <div class="flex-1 space-y-2">
+                                    <input v-model="form.core_values[activeLang][idx].title" type="text"
+                                        class="w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500"
+                                        placeholder="Tiêu đề...">
+                                    <textarea v-model="form.core_values[activeLang][idx].content" rows="2"
+                                        class="w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500"
+                                        placeholder="Nội dung..."></textarea>
+                                </div>
                                 <button type="button" @click="removeCoreValue(idx)"
-                                    class="px-3 py-2 bg-red-50 text-red-600 rounded hover:bg-red-100">
+                                    class="px-3 py-2 bg-red-50 text-red-600 rounded hover:bg-red-100 h-fit mt-1">
                                     Xóa
                                 </button>
                             </div>
