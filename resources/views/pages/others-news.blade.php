@@ -7,7 +7,7 @@
         
         
         <div class="container position-relative text-white z-index-1 text-center" data-aos="fade-up">
-            <h1 class="display-4 fw-bold mb-3 text-white">Blog</h1>
+            <h1 class="display-4 fw-bold mb-3 text-white">{{ app()->getLocale() == 'en' ? 'Other News' : 'Tin Khác' }}</h1>
         </div>
     </section>
 
@@ -16,65 +16,35 @@
         <div class="container py-4">
             <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
                 
-                <!-- Blog 1 -->
-                <div class="col" data-aos="fade-up" data-aos-delay="100">
+                @foreach($posts as $index => $post)
+                <div class="col" data-aos="fade-up" data-aos-delay="{{ ($index % 3 + 1) * 100 }}">
                     <div class="card h-100 border-0 shadow-sm blog-card transition-all">
                         <div class="position-relative overflow-hidden rounded-top-4">
-                            <a href="others-news/nguoi-di-tim-mau-xanh-cho-dat-265.html">
-                                <img src="upload/post/thumbs/nguoi-di-tim-mau-xanh-cho-dat1745404857.jpg" class="card-img-top w-100 object-fit-cover" alt="Người đi tìm màu xanh cho đất" style="height: 250px;">
+                            <a href="{{ route('blog.detail', $post->slug) }}">
+                                <img src="{{ $post->getFirstMediaUrl('posts') ?: asset('images/no-image.jpg') }}"
+                                    class="card-img-top w-100 object-fit-cover" alt="{{ $post->getTranslation('name', app()->getLocale()) }}"
+                                    style="height: 250px;">
                             </a>
                         </div>
                         <div class="card-body p-4 d-flex flex-column">
                             <h5 class="card-title mb-3 lh-base">
-                                <a href="others-news/nguoi-di-tim-mau-xanh-cho-dat-265.html" class="text-dark text-decoration-none fw-semibold blog-title">Người đi tìm màu xanh cho đất</a>
+                                <a href="{{ route('blog.detail', $post->slug) }}"
+                                    class="text-dark text-decoration-none fw-semibold blog-title">{{ $post->getTranslation('name', app()->getLocale()) }}</a>
                             </h5>
                             <div class="mt-auto d-flex justify-content-between align-items-center pt-3 border-top">
-                                <span class="text-muted small"><i class="fa-regular fa-calendar-days me-2"></i>23-04-2025</span>
-                                <a href="others-news/nguoi-di-tim-mau-xanh-cho-dat-265.html" class="text-success text-decoration-none small fw-semibold text-uppercase letter-spacing-1">Xem chi tiết <i class="fa-solid fa-angle-right ms-1"></i></a>
+                                <span class="text-muted small"><i
+                                        class="fa-regular fa-calendar-days me-2"></i>{{ $post->created_at->format('d-m-Y') }}</span>
+                                <a href="{{ route('blog.detail', $post->slug) }}"
+                                    class="text-success text-decoration-none small fw-semibold text-uppercase letter-spacing-1">{{ app()->getLocale() == 'en' ? 'View details' : 'Xem chi tiết' }} <i class="fa-solid fa-angle-right ms-1"></i></a>
                             </div>
                         </div>
                     </div>
                 </div>
-
-                <!-- Blog 2 -->
-                <div class="col" data-aos="fade-up" data-aos-delay="200">
-                    <div class="card h-100 border-0 shadow-sm blog-card transition-all">
-                        <div class="position-relative overflow-hidden rounded-top-4">
-                            <a href="others-news/phat-trien-che-ben-vung-phai-gan-voi-nong-nghiep-sach-266.html">
-                                <img src="upload/post/thumbs/phat-trien-che-ben-vung-phai-gan-voi-nong-nghiep-sach1745404872.jpg" class="card-img-top w-100 object-fit-cover" alt="Phát triển chè bền vững phải gắn với nông nghiệp sạch" style="height: 250px;">
-                            </a>
-                        </div>
-                        <div class="card-body p-4 d-flex flex-column">
-                            <h5 class="card-title mb-3 lh-base">
-                                <a href="others-news/phat-trien-che-ben-vung-phai-gan-voi-nong-nghiep-sach-266.html" class="text-dark text-decoration-none fw-semibold blog-title">Phát triển chè bền vững phải gắn với nông nghiệp sạch</a>
-                            </h5>
-                            <div class="mt-auto d-flex justify-content-between align-items-center pt-3 border-top">
-                                <span class="text-muted small"><i class="fa-regular fa-calendar-days me-2"></i>23-04-2025</span>
-                                <a href="others-news/phat-trien-che-ben-vung-phai-gan-voi-nong-nghiep-sach-266.html" class="text-success text-decoration-none small fw-semibold text-uppercase letter-spacing-1">Xem chi tiết <i class="fa-solid fa-angle-right ms-1"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Blog 3 -->
-                <div class="col" data-aos="fade-up" data-aos-delay="300">
-                    <div class="card h-100 border-0 shadow-sm blog-card transition-all">
-                        <div class="position-relative overflow-hidden rounded-top-4">
-                            <a href="others-news/nhung-loi-ich-co-the-ban-chua-biet-ve-che-xanh-267.html">
-                                <img src="upload/post/thumbs/nhung-loi-ich-co-the-ban-chua-biet-ve-che-xanh1745404885.jpg" class="card-img-top w-100 object-fit-cover" alt="Những lợi ích có thể bạn chưa biết về chè xanh" style="height: 250px;">
-                            </a>
-                        </div>
-                        <div class="card-body p-4 d-flex flex-column">
-                            <h5 class="card-title mb-3 lh-base">
-                                <a href="others-news/nhung-loi-ich-co-the-ban-chua-biet-ve-che-xanh-267.html" class="text-dark text-decoration-none fw-semibold blog-title">Những lợi ích có thể bạn chưa biết về chè xanh</a>
-                            </h5>
-                            <div class="mt-auto d-flex justify-content-between align-items-center pt-3 border-top">
-                                <span class="text-muted small"><i class="fa-regular fa-calendar-days me-2"></i>23-04-2025</span>
-                                <a href="others-news/nhung-loi-ich-co-the-ban-chua-biet-ve-che-xanh-267.html" class="text-success text-decoration-none small fw-semibold text-uppercase letter-spacing-1">Xem chi tiết <i class="fa-solid fa-angle-right ms-1"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
+            </div>
+            
+            <div class="d-flex justify-content-center mt-5">
+                {{ $posts->links() }}
             </div>
         </div>
     </section>

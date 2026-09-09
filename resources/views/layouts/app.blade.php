@@ -11,12 +11,12 @@
     <meta name="author" content="TOPSITE VIET NAM">
     <meta name="geo.region" content="VN">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="@yield('canonical', 'https://kimthanhintc.com/blog.html')">
+    <meta property="og:url" content="@yield('canonical', url()->current())">
     <meta property="og:title" content="Tin tức KIM THÀNH">
     <meta property="og:description" content="Kim Thành chuyên cung cấp trà, nhập khẩu Ấn Độ, Nhật Bản, Trung Quốc">
     <meta property="og:image" content="images/thumbs.png">
     <meta property="og:site_name" content="Tin tức KIM THÀNH">
-    <link rel="canonical" href="@yield('canonical', 'https://kimthanhintc.com/blog.html')">
+    <link rel="canonical" href="@yield('canonical', url()->current())">
     <link rel="shortcut icon" href="{{ asset('images/favicon.png') }}">
     <link rel="stylesheet" href="{{ asset('asset/bootstrap/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('asset/bootstrap-icons/bootstrap-icons.min.css') }}">
@@ -47,13 +47,13 @@
             <!-- Top Bar -->
             <div id="topbar" class="py-2 bg-success text-white">
                 <div class="container d-flex justify-content-between align-items-center">
-                    <a class="text-white text-decoration-none small fw-semibold" href="tel:0986843666">
-                        <i class="fa-sharp fa-solid fa-phone-volume me-1"></i> 0986843666
+                    <a class="text-white text-decoration-none small fw-semibold" href="tel:{{ $settings['contact_phone'] ?? '0986843666' }}">
+                        <i class="fa-sharp fa-solid fa-phone-volume me-1"></i> {{ $settings['contact_phone'] ?? '0986843666' }}
                     </a>
                     <div class="social-links d-flex gap-3">
-                        <a href="#" class="text-white"><i class="fa-brands fa-youtube fs-5"></i></a>
-                        <a href="#" class="text-white"><i class="fa-brands fa-facebook fs-5"></i></a>
-                        <a href="#" class="text-white"><i class="fa-brands fa-instagram fs-5"></i></a>
+                        <a href="{{ $settings['social_youtube'] ?? '#' }}" class="text-white" target="_blank"><i class="fa-brands fa-youtube fs-5"></i></a>
+                        <a href="{{ $settings['social_facebook'] ?? '#' }}" class="text-white" target="_blank"><i class="fa-brands fa-facebook fs-5"></i></a>
+                        <a href="{{ $settings['social_instagram'] ?? '#' }}" class="text-white" target="_blank"><i class="fa-brands fa-instagram fs-5"></i></a>
                     </div>
                 </div>
             </div>
@@ -80,34 +80,33 @@
                     <div class="collapse navbar-collapse justify-content-center" id="mainMenu">
                         <ul class="navbar-nav gap-2 gap-lg-4 text-uppercase fw-semibold fs-6">
                             <li class="nav-item">
-                                <a class="nav-link {{ request()->is('/') ? 'active' : '' }}" href="/">Trang
-                                    chủ</a>
+                                <a class="nav-link {{ request()->routeIs('home') ? 'active' : '' }}" href="{{ route('home') }}">{{ app()->getLocale() == 'en' ? 'Home' : 'Trang chủ' }}</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link {{ request()->is('gioi-thieu.html') ? 'active' : '' }}"
-                                    href="/gioi-thieu.html">Giới thiệu</a>
+                                <a class="nav-link {{ request()->routeIs('about') ? 'active' : '' }}"
+                                    href="{{ route('about') }}">{{ app()->getLocale() == 'en' ? 'About Us' : 'Giới thiệu' }}</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link {{ request()->is('san-pham.html', 'tra-xanh-pt11.html', 'vietnam-green-tea-*') ? 'active' : '' }}"
-                                    href="/san-pham.html">Sản phẩm</a>
+                                <a class="nav-link {{ request()->routeIs('products', 'product.detail') ? 'active' : '' }}"
+                                    href="{{ route('products') }}">{{ app()->getLocale() == 'en' ? 'Products' : 'Sản phẩm' }}</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link {{ request()->is('lien-he.html') ? 'active' : '' }}"
-                                    href="/lien-he.html">Liên hệ</a>
+                                <a class="nav-link {{ request()->routeIs('contact') ? 'active' : '' }}"
+                                    href="{{ route('contact') }}">{{ app()->getLocale() == 'en' ? 'Contact' : 'Liên hệ' }}</a>
                             </li>
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle {{ request()->is('gallery.html') || request()->is('blog.html') || request()->is('others-news.html') ? 'active' : '' }}"
+                                <a class="nav-link dropdown-toggle {{ request()->routeIs('gallery', 'blog', 'blog.khac', 'blog.tin-tuc') ? 'active' : '' }}"
                                     href="#" id="blogDropdown" role="button" data-bs-toggle="dropdown"
                                     data-bs-display="static" aria-expanded="false">
                                     Blog
                                 </a>
                                 <ul class="dropdown-menu border-0 shadow" aria-labelledby="blogDropdown">
-                                    <li><a class="dropdown-item {{ request()->is('gallery.html') ? 'active' : '' }}"
-                                            href="/gallery.html">Thư viện ảnh</a></li>
-                                    <li><a class="dropdown-item {{ request()->is('blog.html') ? 'active' : '' }}"
-                                            href="/blog.html">Tin tức</a></li>
-                                    <li><a class="dropdown-item {{ request()->is('others-news.html') ? 'active' : '' }}"
-                                            href="/others-news.html">Tin khác</a></li>
+                                    <li><a class="dropdown-item {{ request()->routeIs('gallery') ? 'active' : '' }}"
+                                            href="{{ route('gallery') }}">{{ app()->getLocale() == 'en' ? 'Gallery' : 'Thư viện ảnh' }}</a></li>
+                                    <li><a class="dropdown-item {{ request()->routeIs('blog', 'blog.tin-tuc') ? 'active' : '' }}"
+                                            href="{{ route('blog') }}">{{ app()->getLocale() == 'en' ? 'News' : 'Tin tức' }}</a></li>
+                                    <li><a class="dropdown-item {{ request()->routeIs('blog.khac') ? 'active' : '' }}"
+                                            href="{{ route('blog.khac') }}">{{ app()->getLocale() == 'en' ? 'Other News' : 'Tin khác' }}</a></li>
                                 </ul>
                             </li>
 
@@ -115,15 +114,15 @@
                             <li class="nav-item d-lg-none mt-4 pb-4">
                                 <div
                                     class="d-flex align-items-center justify-content-center gap-3 bg-light rounded-pill py-2 w-100">
-                                    <a href="#"
-                                        class="text-success fw-bold text-decoration-none d-flex align-items-center">
+                                    <a href="{{ route('lang.switch', 'vi') }}"
+                                        class="{{ app()->getLocale() == 'vi' ? 'text-success' : 'text-secondary' }} fw-bold text-decoration-none d-flex align-items-center">
                                         VN <img
                                             src="https://upload.wikimedia.org/wikipedia/commons/2/21/Flag_of_Vietnam.svg"
                                             alt="VN" width="22" class="ms-1 rounded-1">
                                     </a>
                                     <span class="text-muted">|</span>
-                                    <a href="en/index.html"
-                                        class="text-secondary fw-bold text-decoration-none d-flex align-items-center">
+                                    <a href="{{ route('lang.switch', 'en') }}"
+                                        class="{{ app()->getLocale() == 'en' ? 'text-success' : 'text-secondary' }} fw-bold text-decoration-none d-flex align-items-center">
                                         EN <img
                                             src="https://upload.wikimedia.org/wikipedia/en/a/ae/Flag_of_the_United_Kingdom.svg"
                                             alt="EN" width="22" class="ms-1 rounded-1">
@@ -138,15 +137,15 @@
                             <button class="btn btn-outline-success dropdown-toggle rounded-pill px-3 fw-semibold"
                                 type="button" data-bs-toggle="dropdown" data-bs-display="static"
                                 aria-expanded="false">
-                                VN <img src="https://upload.wikimedia.org/wikipedia/commons/2/21/Flag_of_Vietnam.svg"
-                                    alt="VN" width="22" class="ms-1 rounded-1">
+                                {{ strtoupper(app()->getLocale()) }} <img src="{{ app()->getLocale() == 'vi' ? 'https://upload.wikimedia.org/wikipedia/commons/2/21/Flag_of_Vietnam.svg' : 'https://upload.wikimedia.org/wikipedia/en/a/ae/Flag_of_the_United_Kingdom.svg' }}"
+                                    alt="{{ strtoupper(app()->getLocale()) }}" width="22" class="ms-1 rounded-1">
                             </button>
                             <ul class="dropdown-menu dropdown-menu-end border-0 shadow">
                                 <li>
-                                    <a class="dropdown-item d-flex align-items-center" href="/en/index.html">
-                                        <img class="flagimg me-1" src="{{ asset('images/flag_en.jpg') }}"
-                                            alt="EN" style="width: 20px; border-radius: 2px;">
-                                        <span>EN</span>
+                                    <a class="dropdown-item d-flex align-items-center" href="{{ route('lang.switch', app()->getLocale() == 'vi' ? 'en' : 'vi') }}">
+                                        <img class="flagimg me-1" src="{{ app()->getLocale() == 'vi' ? 'https://upload.wikimedia.org/wikipedia/en/a/ae/Flag_of_the_United_Kingdom.svg' : 'https://upload.wikimedia.org/wikipedia/commons/2/21/Flag_of_Vietnam.svg' }}"
+                                            alt="{{ app()->getLocale() == 'vi' ? 'EN' : 'VI' }}" style="width: 20px; border-radius: 2px;">
+                                        <span>{{ app()->getLocale() == 'vi' ? 'EN' : 'VI' }}</span>
                                     </a>
                                 </li>
                             </ul>
@@ -163,32 +162,28 @@
             <div class="container">
                 <div class="row g-4 mb-4">
                     <div class="col-lg-4 col-md-12">
-                        <a href="/" class="d-inline-block mb-3">
+                        <a href="{{ route('home') }}" class="d-inline-block mb-3">
                             <img src="{{ asset('upload/banner/logo1698075966.png') }}" alt="Logo Kim Thành" height="70"
                                 class="bg-white p-2 rounded shadow-sm">
                         </a>
-                        <h5 class="text-white mb-0 fw-bold text-nowrap fs-6">CÔNG TY TNHH ĐẦU TƯ THƯƠNG MẠI KIM THÀNH
+                        <h5 class="text-white mb-0 fw-bold text-nowrap fs-6">{{ $settings['company_name'] ?? 'CÔNG TY TNHH ĐẦU TƯ THƯƠNG MẠI KIM THÀNH' }}
                         </h5>
                     </div>
 
                     <div class="col-lg-4 col-md-6 d-lg-flex justify-content-lg-center">
                         <ul class="list-unstyled mb-0">
-                            <li class="mb-3"><a href="gioi-thieu.html"
+                            <li class="mb-3"><a href="{{ route('about') }}"
                                     class="text-white text-decoration-none hover-white small"><i
-                                        class="fa-solid fa-chevron-right me-2" style="font-size: 0.8em;"></i> Giới
-                                    thiệu</a></li>
-                            <li class="mb-3"><a href="san-pham.html"
+                                        class="fa-solid fa-chevron-right me-2" style="font-size: 0.8em;"></i> {{ app()->getLocale() == 'en' ? 'About Us' : 'Giới thiệu' }}</a></li>
+                            <li class="mb-3"><a href="{{ route('products') }}"
                                     class="text-white text-decoration-none hover-white small"><i
-                                        class="fa-solid fa-chevron-right me-2" style="font-size: 0.8em;"></i> Sản
-                                    phẩm</a></li>
-                            <li class="mb-3"><a href="blog.html"
+                                        class="fa-solid fa-chevron-right me-2" style="font-size: 0.8em;"></i> {{ app()->getLocale() == 'en' ? 'Products' : 'Sản phẩm' }}</a></li>
+                            <li class="mb-3"><a href="{{ route('blog') }}"
                                     class="text-white text-decoration-none hover-white small"><i
-                                        class="fa-solid fa-chevron-right me-2" style="font-size: 0.8em;"></i> Tin
-                                    tức</a></li>
-                            <li class="mb-0"><a href="lien-he.html"
+                                        class="fa-solid fa-chevron-right me-2" style="font-size: 0.8em;"></i> {{ app()->getLocale() == 'en' ? 'News' : 'Tin tức' }}</a></li>
+                            <li class="mb-0"><a href="{{ route('contact') }}"
                                     class="text-white text-decoration-none hover-white small"><i
-                                        class="fa-solid fa-chevron-right me-2" style="font-size: 0.8em;"></i> Liên
-                                    hệ</a></li>
+                                        class="fa-solid fa-chevron-right me-2" style="font-size: 0.8em;"></i> {{ app()->getLocale() == 'en' ? 'Contact' : 'Liên hệ' }}</a></li>
                         </ul>
                     </div>
 
@@ -197,28 +192,26 @@
                             <div class="d-flex align-items-start mb-3">
                                 <i class="fa-solid fa-location-dot text-white mt-1 me-3"
                                     style="width: 16px; text-align: center; flex-shrink: 0;"></i>
-                                <div class="text-white small" style="flex: 1;">Xóm Chanh, Xã Sơn Hùng, Huyện Thanh
-                                    Sơn, tỉnh Phú Thọ, Việt Nam.</div>
+                                <div class="text-white small" style="flex: 1;">{{ $settings['contact_address'] ?? 'Xóm Chanh, Xã Sơn Hùng, Huyện Thanh Sơn, tỉnh Phú Thọ, Việt Nam.' }}</div>
                             </div>
                             <div class="d-flex align-items-start mb-3">
                                 <i class="fa-solid fa-envelope text-white mt-1 me-3"
                                     style="width: 16px; text-align: center; flex-shrink: 0;"></i>
                                 <div style="flex: 1;">
-                                    <a href="mailto:kimthanhinvestmenttradingltd@gmail.com"
+                                    <a href="mailto:{{ $settings['contact_email'] ?? 'kimthanhinvestmenttradingltd@gmail.com' }}"
                                         class="text-white text-decoration-none small"
-                                        style="letter-spacing: 0.5px; word-break: break-all;">kimthanhinvestmenttradingltd@gmail.com</a>
+                                        style="letter-spacing: 0.5px; word-break: break-all;">{{ $settings['contact_email'] ?? 'kimthanhinvestmenttradingltd@gmail.com' }}</a>
                                 </div>
                             </div>
                             <div class="d-flex align-items-start mb-3">
                                 <i class="fa-solid fa-phone text-white mt-1 me-3"
                                     style="width: 16px; text-align: center; flex-shrink: 0;"></i>
-                                <div class="text-white small" style="flex: 1;">0986843666 - 0965748456</div>
+                                <div class="text-white small" style="flex: 1;">{{ $settings['contact_phone'] ?? '0986843666' }}</div>
                             </div>
                             <div class="d-flex align-items-start mb-0">
                                 <i class="fa-solid fa-building text-white mt-1 me-3"
                                     style="width: 16px; text-align: center; flex-shrink: 0;"></i>
-                                <div class="text-white small" style="flex: 1;">MST 2601039326 (Sở KH & ĐT Tỉnh Phú Thọ
-                                    cấp 03/02/2020)</div>
+                                <div class="text-white small" style="flex: 1;">MST 2601039326 (Sở KH & ĐT Tỉnh Phú Thọ cấp 03/02/2020)</div>
                             </div>
                         </div>
                     </div>
@@ -226,15 +219,15 @@
                 <hr class="border-secondary mb-3">
                 <div class="row text-center text-md-start">
                     <div class="col-md-6">
-                        <p class="text-white-50 small mb-0">&copy; 2023 Kim Thanh. All Rights Reserved.</p>
+                        <p class="text-white-50 small mb-0">&copy; {{ date('Y') }} Kim Thanh. All Rights Reserved.</p>
                     </div>
                     <div class="col-md-6 text-md-end mt-2 mt-md-0">
                         <div class="social-links">
-                            <a href="#" class="text-white-50 me-3 hover-white"><i
+                            <a href="{{ $settings['social_youtube'] ?? '#' }}" target="_blank" class="text-white-50 me-3 hover-white"><i
                                     class="fa-brands fa-youtube fs-5"></i></a>
-                            <a href="#" class="text-white-50 me-3 hover-white"><i
+                            <a href="{{ $settings['social_facebook'] ?? '#' }}" target="_blank" class="text-white-50 me-3 hover-white"><i
                                     class="fa-brands fa-facebook fs-5"></i></a>
-                            <a href="#" class="text-white-50 hover-white"><i
+                            <a href="{{ $settings['social_instagram'] ?? '#' }}" target="_blank" class="text-white-50 hover-white"><i
                                     class="fa-brands fa-instagram fs-5"></i></a>
                         </div>
                     </div>

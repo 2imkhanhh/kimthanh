@@ -1,77 +1,52 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-
-Route::get('/blog.html', function () {
-    return view('pages.blog');
-});
-Route::get('/gallery.html', function () {
-    return view('pages.gallery');
-});
-Route::get('/gioi-thieu.html', function () {
-    return view('pages.gioi-thieu');
-});
-Route::get('/', function () {
-    return view('pages.index');
-});
-Route::get('/lien-he.html', function () {
-    return view('pages.lien-he');
-});
-Route::get('/others-news.html', function () {
-    return view('pages.others-news');
-});
-Route::get('/san-pham.html', function () {
-    return view('pages.san-pham');
-});
-Route::get('/tra-xanh-pt11.html', function () {
-    return view('pages.tra-xanh-pt11');
-});
-Route::get('/vietnam-green-tea-bps-pro106.html', function () {
-    return view('pages.vietnam-green-tea-bps-pro106');
-});
-Route::get('/vietnam-green-tea-dust-pro104.html', function () {
-    return view('pages.vietnam-green-tea-dust-pro104');
-});
-Route::get('/vietnam-green-tea-f-pro108.html', function () {
-    return view('pages.vietnam-green-tea-f-pro108');
-});
-Route::get('/vietnam-green-tea-madina-pro103.html', function () {
-    return view('pages.vietnam-green-tea-madina-pro103');
-});
-Route::get('/vietnam-green-tea-op-pro107.html', function () {
-    return view('pages.vietnam-green-tea-op-pro107');
-});
-Route::get('/vietnam-green-tea-ps-pro105.html', function () {
-    return view('pages.vietnam-green-tea-ps-pro105');
-});
-
-// Blog and News Detail Routes
-Route::get('/blog/{slug}.html', function ($slug) {
-    if (view()->exists('pages.blog.' . $slug)) {
-        return view('pages.blog.' . $slug);
-    }
-    abort(404);
-});
-
-Route::get('/others-news/{slug}.html', function ($slug) {
-    if (view()->exists('pages.others-news.' . $slug)) {
-        return view('pages.others-news.' . $slug);
-    }
-    abort(404);
-});
-
-
-
 use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
+use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+use App\Http\Controllers\Admin\SettingController;
+use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\Admin\PostController;
+use App\Http\Controllers\FrontendController;
+use App\Http\Controllers\Admin\DashboardController;
 
+// Language Switch Route
+Route::get('/lang/{locale}', function ($locale) {
+    if (!in_array($locale, ['en', 'vi'])) {
+        abort(400);
+    }
+    session()->put('locale', $locale);
+    return redirect()->back();
+})->name('lang.switch');
 
+// Public Routes (Blade) with FrontendController
+Route::get('/', [FrontendController::class, 'index'])->name('home');
+Route::get('/gioi-thieu', [FrontendController::class, 'about'])->name('about');
+Route::get('/san-pham', [FrontendController::class, 'products'])->name('products');
+Route::get('/san-pham/{slug}', [FrontendController::class, 'productDetail'])->name('product.detail');
+Route::get('/blog', [FrontendController::class, 'blog'])->name('blog');
+Route::get('/blog-tin-tuc', [FrontendController::class, 'blogTinTuc'])->name('blog.tin-tuc');
+Route::get('/blog-khac', [FrontendController::class, 'blogKhac'])->name('blog.khac');
+Route::get('/thu-vien-anh', [FrontendController::class, 'gallery'])->name('gallery');
+Route::get('/blog/{slug}', [FrontendController::class, 'blogDetail'])->name('blog.detail');
+Route::get('/lien-he', [FrontendController::class, 'contact'])->name('contact');
+Route::post('/lien-he', [FrontendController::class, 'submitContact'])->name('contact.submit');
 
-Route::get('/dashboard', function () {
-    return Inertia::render('Dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+// Admin Dashboard Route (Inertia)
+Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
 
+// Admin Routes Group
+Route::middleware(['auth', 'verified'])->prefix('admin')->name('admin.')->group(function () {
+    Route::resource('settings', SettingController::class);
+    Route::resource('categories', CategoryController::class);
+    Route::resource('products', ProductController::class);
+    Route::resource('posts', PostController::class);
+    Route::resource('contacts', \App\Http\Controllers\Admin\ContactController::class)->only(['index', 'update', 'destroy']);
+    Route::get('/email-settings', [SettingController::class, 'email'])->name('settings.email');
+});
+
+// Auth & Profile Routes
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
