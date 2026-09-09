@@ -18,7 +18,7 @@
                                     </div>
                                     <div>
                                         <h6 class="mb-1 fw-bold text-white">{{ app()->getLocale() == 'en' ? 'Address' : 'Địa chỉ' }}</h6>
-                                        <p class="mb-0 small opacity-75">{{ $settings['company_address'] ?? '' }}</p>
+                                        <p class="mb-0 small opacity-75">{{ $settings['contact_address'] ?? '' }}</p>
                                     </div>
                                 </div>
 
@@ -29,7 +29,7 @@
                                     </div>
                                     <div>
                                         <h6 class="mb-1 fw-bold text-white">{{ app()->getLocale() == 'en' ? 'Phone' : 'Điện thoại' }}</h6>
-                                        <p class="mb-0 small opacity-75">{{ $settings['company_phone'] ?? '' }}</p>
+                                        <p class="mb-0 small opacity-75">{{ $settings['contact_phone'] ?? '' }}</p>
                                     </div>
                                 </div>
 
@@ -40,7 +40,7 @@
                                     </div>
                                     <div>
                                         <h6 class="mb-1 fw-bold text-white">Email</h6>
-                                        <p class="mb-0 small opacity-75">{{ $settings['company_email'] ?? '' }}</p>
+                                        <p class="mb-0 small opacity-75">{{ $settings['contact_email'] ?? '' }}</p>
                                     </div>
                                 </div>
                             </div>

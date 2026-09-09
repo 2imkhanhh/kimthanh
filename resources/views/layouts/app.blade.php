@@ -5,17 +5,17 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>@yield('title', 'Tin tức KIM THÀNH')</title>
+    <title>@yield('title')</title>
     <meta name="description" content="Kim Thành chuyên cung cấp trà, nhập khẩu Ấn Độ, Nhật Bản, Trung Quốc">
-    <meta name="keywords" content="Tin tức KIM THÀNH">
+    <meta name="keywords" content="@yield('title')">
     <meta name="author" content="TOPSITE VIET NAM">
     <meta name="geo.region" content="VN">
     <meta property="og:type" content="website">
     <meta property="og:url" content="@yield('canonical', url()->current())">
-    <meta property="og:title" content="Tin tức KIM THÀNH">
+    <meta property="og:title" content="@yield('title')">
     <meta property="og:description" content="Kim Thành chuyên cung cấp trà, nhập khẩu Ấn Độ, Nhật Bản, Trung Quốc">
     <meta property="og:image" content="images/thumbs.png">
-    <meta property="og:site_name" content="Tin tức KIM THÀNH">
+    <meta property="og:site_name" content="@yield('title')">
     <link rel="canonical" href="@yield('canonical', url()->current())">
     <link rel="shortcut icon" href="{{ asset('images/favicon.png') }}">
     <link rel="stylesheet" href="{{ asset('asset/bootstrap/css/bootstrap.min.css') }}">

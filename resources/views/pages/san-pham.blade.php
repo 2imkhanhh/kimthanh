@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Sản phẩm')
+@section('title', app()->getLocale() == 'en' ? 'Products' : 'Sản phẩm')
 @section('content')
 
     <!-- HERO SECTION -->

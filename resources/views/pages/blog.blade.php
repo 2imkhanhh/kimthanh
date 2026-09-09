@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Blog')
+@section('title', app()->getLocale() == 'en' ? 'News' : 'Tin tức')
 @section('content')
     <!-- HERO SECTION -->
     <section id="hero" class="d-flex align-items-center position-relative"

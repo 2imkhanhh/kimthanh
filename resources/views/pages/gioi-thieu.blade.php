@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Giới thiệu')
+@section('title', app()->getLocale() == 'en' ? 'About Us' : 'Giới thiệu')
 @section('content')
     <section id="hero" class="d-flex align-items-center position-relative vh-100"
         style="background: url('upload/banner/gioi-thieu1698571489.jpg') center/cover no-repeat; min-height: 80vh;">

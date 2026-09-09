@@ -187,8 +187,20 @@ const submit = () => {
                 <div v-show="activeSection === 'general'">
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div class="col-span-2">
-                            <label class="block text-sm font-medium text-gray-700 mb-1">Tiêu đề Website</label>
-                            <input v-model="form.site_title[activeLang]" type="text"
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Địa chỉ</label>
+                            <input v-model="form.contact_address[activeLang]" type="text"
+                                class="w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500">
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Điện thoại</label>
+                            <input v-model="form.contact_phone[activeLang]" type="text"
+                                class="w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500">
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                            <input v-model="form.contact_email[activeLang]" type="email"
                                 class="w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500">
                         </div>
 
@@ -429,24 +441,6 @@ const submit = () => {
 
                     <h3 class="text-lg font-semibold mb-4 border-b pb-2">Thông tin liên hệ</h3>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div class="col-span-2">
-                            <label class="block text-sm font-medium text-gray-700 mb-1">Địa chỉ</label>
-                            <input v-model="form.contact_address[activeLang]" type="text"
-                                class="w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500">
-                        </div>
-
-                        <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-1">Điện thoại</label>
-                            <input v-model="form.contact_phone[activeLang]" type="text"
-                                class="w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500">
-                        </div>
-
-                        <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-1">Email</label>
-                            <input v-model="form.contact_email[activeLang]" type="email"
-                                class="w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500">
-                        </div>
-
                         <div>
                             <label class="block text-sm font-medium text-gray-700 mb-1">Website</label>
                             <input v-model="form.contact_website[activeLang]" type="text"
