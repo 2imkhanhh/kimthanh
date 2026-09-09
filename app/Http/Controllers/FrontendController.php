@@ -41,9 +41,10 @@ class FrontendController extends Controller
         $settings = $this->getSettings();
         $product = Product::where('slug', $slug)->where('is_active', true)->firstOrFail();
         
-        $relatedProducts = Product::where('id', '!=', $product->id)
+        $relatedProducts = Product::where('category_id', $product->category_id)
+            ->where('id', '!=', $product->id)
             ->where('is_active', true)
-            ->take(4)->get();
+            ->get();
             
         return view('pages.chi-tiet-san-pham', compact('settings', 'product', 'relatedProducts'));
     }

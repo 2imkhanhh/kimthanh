@@ -112,8 +112,7 @@
     @php
         $storedValues = $settings['core_values'] ?? null;
         $coreValues = [];
-        
-        // If settings explicitly has an empty array, it means user deleted all items in admin.
+
         if (is_array($storedValues)) {
             foreach ($storedValues as $index => $val) {
                 if (is_string($val)) {
@@ -121,63 +120,68 @@
                         'title' => $val,
                         'desc' => '',
                     ];
-                } else if (is_array($val)) {
+                } elseif (is_array($val)) {
                     $coreValues[] = [
                         'title' => $val['title'] ?? '',
                         'desc' => $val['content'] ?? '',
                     ];
                 }
             }
-        } else if ($storedValues === null) {
-            // Default fallback if never saved
+        } elseif ($storedValues === null) {
             $coreValues = [
                 [
                     'title' => 'Chất lượng là nền tảng',
-                    'desc' => 'Luôn đặt chất lượng sản phẩm lên hàng đầu, từ quy trình sản xuất đến tiêu chuẩn an toàn thực phẩm quốc tế.'
+                    'desc' =>
+                        'Luôn đặt chất lượng sản phẩm lên hàng đầu, từ quy trình sản xuất đến tiêu chuẩn an toàn thực phẩm quốc tế.',
                 ],
                 [
                     'title' => 'Uy tín là cam kết',
-                    'desc' => 'Giữ vững chữ tín với đối tác, khách hàng và cộng đồng trong mọi hoạt động.'
+                    'desc' => 'Giữ vững chữ tín với đối tác, khách hàng và cộng đồng trong mọi hoạt động.',
                 ],
                 [
                     'title' => 'Bền vững là định hướng',
-                    'desc' => 'Phát triển hài hòa giữa lợi ích doanh nghiệp, người nông dân và môi trường, hướng đến nông nghiệp xanh - sạch - bền vững.'
-                ]
+                    'desc' =>
+                        'Phát triển hài hòa giữa lợi ích doanh nghiệp, người nông dân và môi trường, hướng đến nông nghiệp xanh - sạch - bền vững.',
+                ],
             ];
         }
     @endphp
 
-    @if(count($coreValues) > 0)
-    <section class="py-5 text-white position-relative"
-        style="background: url('{{ asset('upload/banner/tra-viet-nam-la-nghe-si1698571462.jpg') }}') center top / cover no-repeat;">
-        <div class="position-absolute top-0 start-0 w-100 h-100 bg-dark opacity-75"></div>
-        <div class="container py-5 position-relative" style="z-index: 1;">
-            <div class="text-center mb-5" data-aos="fade-up">
-                <h2 class="display-4 text-uppercase fw-bold text-white mb-3">{{ app()->getLocale() == 'en' ? 'Core Values' : 'Giá trị cốt lõi' }}</h2>
-                <div class="mx-auto bg-white" style="height: 3px; width: 60px;"></div>
-            </div>
-
-            <div class="row row-cols-1 row-cols-md-3 g-4 justify-content-center">
-                @foreach($coreValues as $idx => $cv)
-                @php
-                    // Fallback images for the items to keep the design intact
-                    $imgDefault = 'upload/post/core-value-11698080943.png';
-                    if ($idx % 3 == 1) $imgDefault = 'upload/post/core-value-21698080955.png';
-                    if ($idx % 3 == 2) $imgDefault = 'upload/post/core-value-31698080968.png';
-                @endphp
-                <div class="col" data-aos="fade-up" data-aos-delay="{{ ($idx + 1) * 100 }}">
-                    <div
-                        class="card h-100 border-0 bg-white bg-opacity-10 text-white text-center p-4 rounded-4 hover-glass">
-                        <div class="mb-4">
-                            <img src="{{ asset($imgDefault) }}" alt="Core Value" style="height: 80px;">
-                        </div>
-                        <h4 class="fw-bold mb-3 text-white">{{ $cv['title'] }}</h4>
-                        <p class="mb-0 opacity-75">{!! nl2br(e($cv['desc'])) !!}</p>
-                    </div>
+    @if (count($coreValues) > 0)
+        <section class="py-5 text-white position-relative"
+            style="background: url('{{ asset('upload/banner/tra-viet-nam-la-nghe-si1698571462.jpg') }}') center top / cover no-repeat;">
+            <div class="position-absolute top-0 start-0 w-100 h-100 bg-dark opacity-75"></div>
+            <div class="container py-5 position-relative" style="z-index: 1;">
+                <div class="text-center mb-5" data-aos="fade-up">
+                    <h2 class="display-4 text-uppercase fw-bold text-white mb-3">
+                        {{ app()->getLocale() == 'en' ? 'Core Values' : 'Giá trị cốt lõi' }}</h2>
+                    <div class="mx-auto bg-white" style="height: 3px; width: 60px;"></div>
                 </div>
-                @endforeach
+
+                <div class="row row-cols-1 row-cols-md-3 g-4 justify-content-center">
+                    @foreach ($coreValues as $idx => $cv)
+                        @php
+                            $imgDefault = 'upload/post/core-value-11698080943.png';
+                            if ($idx % 3 == 1) {
+                                $imgDefault = 'upload/post/core-value-21698080955.png';
+                            }
+                            if ($idx % 3 == 2) {
+                                $imgDefault = 'upload/post/core-value-31698080968.png';
+                            }
+                        @endphp
+                        <div class="col" data-aos="fade-up" data-aos-delay="{{ ($idx + 1) * 100 }}">
+                            <div
+                                class="card h-100 border-0 bg-white bg-opacity-10 text-white text-center p-4 rounded-4 hover-glass">
+                                <div class="mb-4">
+                                    <img src="{{ asset($imgDefault) }}" alt="Core Value" style="height: 80px;">
+                                </div>
+                                <h4 class="fw-bold mb-3 text-white">{{ $cv['title'] }}</h4>
+                                <p class="mb-0 opacity-75">{!! nl2br(e($cv['desc'])) !!}</p>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
     @endif
 @endsection
