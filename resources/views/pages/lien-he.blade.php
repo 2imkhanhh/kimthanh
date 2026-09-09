@@ -117,10 +117,14 @@
 
     <!-- MAP SECTION -->
     <section>
-        <iframe
-            src="https://maps.google.com/maps?q=21.3584312,105.2935298+(X%C3%B3m%20Chanh%2C%20X%C3%A3%20S%C6%A1n%20H%C3%B9ng%2C%20Huy%E1%BB%87n%20Thanh%20S%C6%A1n%2C%20T%E1%BB%89nh%20Ph%C3%BA%20Th%E1%BB%8D%2C%20Vi%E1%BB%87t%20Nam)&t=&z=14&ie=UTF8&iwloc=B&output=embed"
-            width="100%" height="450" style="border:0; width: 100%; display: block;" allowfullscreen="" loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"></iframe>
+        @if(!empty($settings['contact_map_iframe']))
+            {!! $settings['contact_map_iframe'] !!}
+        @else
+            <iframe
+                src="https://maps.google.com/maps?q=21.3584312,105.2935298+(X%C3%B3m%20Chanh%2C%20X%C3%A3%20S%C6%A1n%20H%C3%B9ng%2C%20Huy%E1%BB%87n%20Thanh%20S%C6%A1n%2C%20T%E1%BB%89nh%20Ph%C3%BA%20Th%E1%BB%8D%2C%20Vi%E1%BB%87t%20Nam)&t=&z=14&ie=UTF8&iwloc=B&output=embed"
+                width="100%" height="450" style="border:0; width: 100%; display: block;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
+        @endif
     </section>
 
 @endsection

@@ -448,12 +448,6 @@ const submit = () => {
 
                     <h3 class="text-lg font-semibold mb-4 border-b pb-2">Thông tin liên hệ</h3>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-1">Website</label>
-                            <input v-model="form.contact_website[activeLang]" type="text"
-                                class="w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500">
-                        </div>
-
                         <div class="col-span-2">
                             <label class="block text-sm font-medium text-gray-700 mb-1">Bản đồ (Mã iframe Google
                                 Maps)</label>
