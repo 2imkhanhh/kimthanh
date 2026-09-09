@@ -45,6 +45,9 @@ const form = useForm({
     contact_email: getSetting('contact_email'),
     contact_address: getSetting('contact_address'),
     contact_website: getSetting('contact_website'),
+    social_facebook: getSetting('social_facebook'),
+    social_youtube: getSetting('social_youtube'),
+    social_instagram: getSetting('social_instagram'),
 
     // Images
     logo: null,
@@ -204,6 +207,26 @@ const submit = () => {
                             <input v-model="form.contact_email[activeLang]" type="email"
                                 class="w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500">
                         </div>
+
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Link Facebook</label>
+                            <input v-model="form.social_facebook[activeLang]" type="text" placeholder="https://facebook.com/..."
+                                class="w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500">
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Link Youtube</label>
+                            <input v-model="form.social_youtube[activeLang]" type="text" placeholder="https://youtube.com/..."
+                                class="w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500">
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Link Instagram</label>
+                            <input v-model="form.social_instagram[activeLang]" type="text" placeholder="https://instagram.com/..."
+                                class="w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500">
+                        </div>
+                        
+                        <div class="hidden md:block"></div>
 
                         <div>
                             <label class="block text-sm font-medium text-gray-700 mb-1">Logo</label>

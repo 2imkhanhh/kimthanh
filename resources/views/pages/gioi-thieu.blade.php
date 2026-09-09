@@ -36,7 +36,7 @@
     </style>
 
     <section id="about-us-1"
-        style="background: url('{{ asset('images/bg-about1.jpg') }}') center top no-repeat; background-size: 100% 100%; padding: 190px 0;">
+        style="background: url('{{ asset('images/bg-about1.jpg') }}') center center no-repeat; background-size: cover; padding: 190px 0;">
         <div class="container position-relative z-index-2">
             <div class="about-us-warp mx-auto text-white" data-aos="fade-up"
                 style="max-width: 900px; background: transparent; border: none; backdrop-filter: none; padding: 0;">

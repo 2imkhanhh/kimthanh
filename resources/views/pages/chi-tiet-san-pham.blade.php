@@ -72,7 +72,7 @@
                                             @foreach($specs as $key => $label)
                                                 @if(!empty($product->$key))
                                                     <tr>
-                                                        <th class="w-50 text-muted">{{ $label }}</th>
+                                                        <th class="text-muted" style="width: 35%;">{{ $label }}</th>
                                                         <td class="fw-semibold">{{ $product->$key }}</td>
                                                     </tr>
                                                 @endif
