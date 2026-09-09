@@ -18,7 +18,7 @@ class FrontendController extends Controller
     public function index()
     {
         $settings = $this->getSettings();
-        $products = Product::where('is_active', true)->latest()->take(6)->get();
+        $products = Product::with('category')->where('is_active', true)->where('is_featured', true)->latest()->get();
         $posts = Post::where('is_active', true)->where('type', 'tin-tuc')->latest()->take(3)->get();
         return view('pages.index', compact('settings', 'products', 'posts'));
     }
