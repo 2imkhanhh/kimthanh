@@ -57,7 +57,7 @@
         <div class="container py-4">
             <div class="row align-items-center g-5">
                 <div class="col-lg-5 text-center text-lg-start" data-aos="fade-right">
-                    <img src="upload/post/tam-nhin1745834206.png" alt="Tầm nhìn" class="img-fluid"
+                    <img src="{{ asset('upload/post/tam-nhin1745834206.png') }}" alt="Tầm nhìn" class="img-fluid"
                         style="max-height: 400px; mix-blend-mode: multiply;">
                 </div>
                 <div class="col-lg-7" data-aos="fade-left">
@@ -82,7 +82,7 @@
                     </div>
                 </div>
                 <div class="col-lg-5 order-1 order-lg-2 text-center text-lg-end" data-aos="fade-left">
-                    <img src="upload/post/su-menh1745834215.png" alt="Sứ mệnh" class="img-fluid"
+                    <img src="{{ asset('upload/post/su-menh1745834215.png') }}" alt="Sứ mệnh" class="img-fluid"
                         style="max-height: 400px; mix-blend-mode: multiply;">
                 </div>
             </div>
@@ -94,7 +94,7 @@
         <div class="container py-4">
             <div class="row align-items-center g-5">
                 <div class="col-lg-5 text-center text-lg-start" data-aos="fade-right">
-                    <img src="upload/post/van-hoa-cong-ty1745834224.png" alt="Văn hoá công ty" class="img-fluid"
+                    <img src="{{ asset('upload/post/van-hoa-cong-ty1745834224.png') }}" alt="Văn hoá công ty" class="img-fluid"
                         style="max-height: 400px; mix-blend-mode: multiply;">
                 </div>
                 <div class="col-lg-7" data-aos="fade-left">

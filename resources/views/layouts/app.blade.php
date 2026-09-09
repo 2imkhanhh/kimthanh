@@ -44,6 +44,14 @@
     <div id="page">
 
         <header class="sticky-top bg-white shadow-sm">
+            @php
+                $currentRouteName = request()->route() ? request()->route()->getName() : 'vi.home';
+                $baseRouteName = preg_replace('/^(vi\.|en\.)/', '', $currentRouteName);
+                $currentRouteParams = request()->route() ? request()->route()->parameters() : [];
+                
+                $enUrl = route('en.' . $baseRouteName, $currentRouteParams);
+                $viUrl = route('vi.' . $baseRouteName, $currentRouteParams);
+            @endphp
             <!-- Top Bar -->
             <div id="topbar" class="py-2 bg-success text-white">
                 <div class="container d-flex justify-content-between align-items-center">
@@ -80,33 +88,33 @@
                     <div class="collapse navbar-collapse justify-content-center" id="mainMenu">
                         <ul class="navbar-nav gap-2 gap-lg-4 text-uppercase fw-semibold fs-6">
                             <li class="nav-item">
-                                <a class="nav-link {{ request()->routeIs('home') ? 'active' : '' }}" href="{{ route('home') }}">{{ app()->getLocale() == 'en' ? 'Home' : 'Trang chủ' }}</a>
+                                <a class="nav-link {{ request()->routeIs('*.home') ? 'active' : '' }}" href="{{ route(app()->getLocale() . '.home') }}">{{ app()->getLocale() == 'en' ? 'Home' : 'Trang chủ' }}</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link {{ request()->routeIs('about') ? 'active' : '' }}"
-                                    href="{{ route('about') }}">{{ app()->getLocale() == 'en' ? 'About Us' : 'Giới thiệu' }}</a>
+                                <a class="nav-link {{ request()->routeIs('*.about') ? 'active' : '' }}"
+                                    href="{{ route(app()->getLocale() . '.about') }}">{{ app()->getLocale() == 'en' ? 'About Us' : 'Giới thiệu' }}</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link {{ request()->routeIs('products', 'product.detail') ? 'active' : '' }}"
-                                    href="{{ route('products') }}">{{ app()->getLocale() == 'en' ? 'Products' : 'Sản phẩm' }}</a>
+                                <a class="nav-link {{ request()->routeIs('*.products', '*.product.detail') ? 'active' : '' }}"
+                                    href="{{ route(app()->getLocale() . '.products') }}">{{ app()->getLocale() == 'en' ? 'Products' : 'Sản phẩm' }}</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link {{ request()->routeIs('contact') ? 'active' : '' }}"
-                                    href="{{ route('contact') }}">{{ app()->getLocale() == 'en' ? 'Contact' : 'Liên hệ' }}</a>
+                                <a class="nav-link {{ request()->routeIs('*.contact') ? 'active' : '' }}"
+                                    href="{{ route(app()->getLocale() . '.contact') }}">{{ app()->getLocale() == 'en' ? 'Contact' : 'Liên hệ' }}</a>
                             </li>
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle {{ request()->routeIs('gallery', 'blog', 'blog.khac', 'blog.tin-tuc', 'blog.detail') ? 'active' : '' }}"
+                                <a class="nav-link dropdown-toggle {{ request()->routeIs('*.gallery', '*.blog', '*.blog.khac', '*.blog.tin-tuc', '*.blog.detail') ? 'active' : '' }}"
                                     href="#" id="blogDropdown" role="button" data-bs-toggle="dropdown"
                                     data-bs-display="static" aria-expanded="false">
                                     Blog
                                 </a>
                                 <ul class="dropdown-menu border-0 shadow" aria-labelledby="blogDropdown">
-                                    <li><a class="dropdown-item {{ request()->routeIs('gallery') ? 'active' : '' }}"
-                                            href="{{ route('gallery') }}">{{ app()->getLocale() == 'en' ? 'Gallery' : 'Thư viện ảnh' }}</a></li>
-                                    <li><a class="dropdown-item {{ request()->routeIs('blog', 'blog.tin-tuc') ? 'active' : '' }}"
-                                            href="{{ route('blog') }}">{{ app()->getLocale() == 'en' ? 'News' : 'Tin tức' }}</a></li>
-                                    <li><a class="dropdown-item {{ request()->routeIs('blog.khac') ? 'active' : '' }}"
-                                            href="{{ route('blog.khac') }}">{{ app()->getLocale() == 'en' ? 'Other News' : 'Tin khác' }}</a></li>
+                                    <li><a class="dropdown-item {{ request()->routeIs('*.gallery') ? 'active' : '' }}"
+                                            href="{{ route(app()->getLocale() . '.gallery') }}">{{ app()->getLocale() == 'en' ? 'Gallery' : 'Thư viện ảnh' }}</a></li>
+                                    <li><a class="dropdown-item {{ request()->routeIs('*.blog', '*.blog.tin-tuc') ? 'active' : '' }}"
+                                            href="{{ route(app()->getLocale() . '.blog') }}">{{ app()->getLocale() == 'en' ? 'News' : 'Tin tức' }}</a></li>
+                                    <li><a class="dropdown-item {{ request()->routeIs('*.blog.khac') ? 'active' : '' }}"
+                                            href="{{ route(app()->getLocale() . '.blog.khac') }}">{{ app()->getLocale() == 'en' ? 'Other News' : 'Tin khác' }}</a></li>
                                 </ul>
                             </li>
 
@@ -114,14 +122,14 @@
                             <li class="nav-item d-lg-none mt-4 pb-4">
                                 <div
                                     class="d-flex align-items-center justify-content-center gap-3 bg-light rounded-pill py-2 w-100">
-                                    <a href="{{ route('lang.switch', 'vi') }}"
+                                    <a href="{{ $viUrl }}"
                                         class="{{ app()->getLocale() == 'vi' ? 'text-success' : 'text-secondary' }} fw-bold text-decoration-none d-flex align-items-center">
                                         VN <img
                                             src="https://upload.wikimedia.org/wikipedia/commons/2/21/Flag_of_Vietnam.svg"
                                             alt="VN" width="22" class="ms-1 rounded-1">
                                     </a>
                                     <span class="text-muted">|</span>
-                                    <a href="{{ route('lang.switch', 'en') }}"
+                                    <a href="{{ $enUrl }}"
                                         class="{{ app()->getLocale() == 'en' ? 'text-success' : 'text-secondary' }} fw-bold text-decoration-none d-flex align-items-center">
                                         EN <img
                                             src="https://upload.wikimedia.org/wikipedia/en/a/ae/Flag_of_the_United_Kingdom.svg"
@@ -142,7 +150,7 @@
                             </button>
                             <ul class="dropdown-menu dropdown-menu-end border-0 shadow">
                                 <li>
-                                    <a class="dropdown-item d-flex align-items-center" href="{{ route('lang.switch', app()->getLocale() == 'vi' ? 'en' : 'vi') }}">
+                                    <a class="dropdown-item d-flex align-items-center" href="{{ app()->getLocale() == 'vi' ? $enUrl : $viUrl }}">
                                         <img class="flagimg me-1" src="{{ app()->getLocale() == 'vi' ? 'https://upload.wikimedia.org/wikipedia/en/a/ae/Flag_of_the_United_Kingdom.svg' : 'https://upload.wikimedia.org/wikipedia/commons/2/21/Flag_of_Vietnam.svg' }}"
                                             alt="{{ app()->getLocale() == 'vi' ? 'EN' : 'VI' }}" style="width: 20px; border-radius: 2px;">
                                         <span>{{ app()->getLocale() == 'vi' ? 'EN' : 'VI' }}</span>
@@ -162,7 +170,7 @@
             <div class="container">
                 <div class="row g-4 mb-4">
                     <div class="col-lg-4 col-md-12">
-                        <a href="{{ route('home') }}" class="d-inline-block mb-3">
+                        <a href="{{ route(app()->getLocale() . '.home') }}" class="d-inline-block mb-3">
                             <img src="{{ isset($settings['footer_logo']) && $settings['footer_logo'] ? asset($settings['footer_logo']) : asset('upload/banner/logo1698075966.png') }}" alt="Logo Kim Thành" height="70"
                                 class="bg-white p-2 rounded shadow-sm">
                         </a>
@@ -172,16 +180,16 @@
 
                     <div class="col-lg-4 col-md-6 d-lg-flex justify-content-lg-center">
                         <ul class="list-unstyled mb-0">
-                            <li class="mb-3"><a href="{{ route('about') }}"
+                            <li class="mb-3"><a href="{{ route(app()->getLocale() . '.about') }}"
                                     class="text-white text-decoration-none hover-white small"><i
                                         class="fa-solid fa-chevron-right me-2" style="font-size: 0.8em;"></i> {{ app()->getLocale() == 'en' ? 'About Us' : 'Giới thiệu' }}</a></li>
-                            <li class="mb-3"><a href="{{ route('products') }}"
+                            <li class="mb-3"><a href="{{ route(app()->getLocale() . '.products') }}"
                                     class="text-white text-decoration-none hover-white small"><i
                                         class="fa-solid fa-chevron-right me-2" style="font-size: 0.8em;"></i> {{ app()->getLocale() == 'en' ? 'Products' : 'Sản phẩm' }}</a></li>
-                            <li class="mb-3"><a href="{{ route('blog') }}"
+                            <li class="mb-3"><a href="{{ route(app()->getLocale() . '.blog') }}"
                                     class="text-white text-decoration-none hover-white small"><i
                                         class="fa-solid fa-chevron-right me-2" style="font-size: 0.8em;"></i> {{ app()->getLocale() == 'en' ? 'News' : 'Tin tức' }}</a></li>
-                            <li class="mb-0"><a href="{{ route('contact') }}"
+                            <li class="mb-0"><a href="{{ route(app()->getLocale() . '.contact') }}"
                                     class="text-white text-decoration-none hover-white small"><i
                                         class="fa-solid fa-chevron-right me-2" style="font-size: 0.8em;"></i> {{ app()->getLocale() == 'en' ? 'Contact' : 'Liên hệ' }}</a></li>
                         </ul>

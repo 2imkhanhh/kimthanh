@@ -33,17 +33,17 @@
                                     <div class="swiper-slide">
                                         <div class="card h-100 border-0 shadow-sm blog-card transition-all">
                                             <div class="position-relative overflow-hidden rounded-top-4">
-                                                <a href="{{ route('blog.detail', $related->slug) }}">
+                                                <a href="{{ route(app()->getLocale() . '.blog.detail', ['slug' => $related->slug]) }}">
                                                     <img src="{{ $related->getFirstMediaUrl('posts') ?: asset('images/no-image.jpg') }}" class="card-img-top w-100 object-fit-cover" alt="{{ $related->getTranslation('title', app()->getLocale()) }}" style="height: 250px;">
                                                 </a>
                                             </div>
                                             <div class="card-body p-4 d-flex flex-column">
                                                 <h5 class="card-title mb-3 lh-base">
-                                                    <a href="{{ route('blog.detail', $related->slug) }}" class="text-dark text-decoration-none fw-semibold blog-title">{{ $related->getTranslation('title', app()->getLocale()) }}</a>
+                                                    <a href="{{ route(app()->getLocale() . '.blog.detail', ['slug' => $related->slug]) }}" class="text-dark text-decoration-none fw-semibold blog-title">{{ $related->getTranslation('title', app()->getLocale()) }}</a>
                                                 </h5>
                                                 <div class="mt-auto d-flex justify-content-between align-items-center pt-3 border-top">
                                                     <span class="text-muted small"><i class="fa-regular fa-calendar-days me-2"></i>{{ $related->created_at->format('d-m-Y') }}</span>
-                                                    <a href="{{ route('blog.detail', $related->slug) }}" class="text-success text-decoration-none small fw-semibold text-uppercase letter-spacing-1">{{ app()->getLocale() == 'en' ? 'See details' : 'Xem chi tiết' }} <i class="fa-solid fa-angle-right ms-1"></i></a>
+                                                    <a href="{{ route(app()->getLocale() . '.blog.detail', ['slug' => $related->slug]) }}" class="text-success text-decoration-none small fw-semibold text-uppercase letter-spacing-1">{{ app()->getLocale() == 'en' ? 'See details' : 'Xem chi tiết' }} <i class="fa-solid fa-angle-right ms-1"></i></a>
                                                 </div>
                                             </div>
                                         </div>

@@ -51,7 +51,7 @@
                                 @if(session('success'))
                                     <div class="alert alert-success">{{ session('success') }}</div>
                                 @endif
-                                <form action="{{ route('contact.submit') }}" name="frmContact" id="frmContact"
+                                <form action="{{ route(app()->getLocale() . '.contact.submit') }}" name="frmContact" id="frmContact"
                                     method="post">
                                     @csrf
                                     <div class="row g-3">

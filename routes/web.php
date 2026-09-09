@@ -11,27 +11,35 @@ use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\Admin\DashboardController;
 
-// Language Switch Route
-Route::get('/lang/{locale}', function ($locale) {
-    if (!in_array($locale, ['en', 'vi'])) {
-        abort(400);
-    }
-    session()->put('locale', $locale);
-    return redirect()->back();
-})->name('lang.switch');
+// Vietnamese Routes (Default)
+Route::middleware(\App\Http\Middleware\SetLocale::class)->name('vi.')->group(function () {
+    Route::get('/', [FrontendController::class, 'index'])->name('home');
+    Route::get('/gioi-thieu', [FrontendController::class, 'about'])->name('about');
+    Route::get('/san-pham', [FrontendController::class, 'products'])->name('products');
+    Route::get('/san-pham/{slug}', [FrontendController::class, 'productDetail'])->name('product.detail');
+    Route::get('/blog', [FrontendController::class, 'blog'])->name('blog');
+    Route::get('/blog-tin-tuc', [FrontendController::class, 'blogTinTuc'])->name('blog.tin-tuc');
+    Route::get('/blog-khac', [FrontendController::class, 'blogKhac'])->name('blog.khac');
+    Route::get('/thu-vien-anh', [FrontendController::class, 'gallery'])->name('gallery');
+    Route::get('/blog/{slug}', [FrontendController::class, 'blogDetail'])->name('blog.detail');
+    Route::get('/lien-he', [FrontendController::class, 'contact'])->name('contact');
+    Route::post('/lien-he', [FrontendController::class, 'submitContact'])->name('contact.submit');
+});
 
-// Public Routes (Blade) with FrontendController
-Route::get('/', [FrontendController::class, 'index'])->name('home');
-Route::get('/gioi-thieu', [FrontendController::class, 'about'])->name('about');
-Route::get('/san-pham', [FrontendController::class, 'products'])->name('products');
-Route::get('/san-pham/{slug}', [FrontendController::class, 'productDetail'])->name('product.detail');
-Route::get('/blog', [FrontendController::class, 'blog'])->name('blog');
-Route::get('/blog-tin-tuc', [FrontendController::class, 'blogTinTuc'])->name('blog.tin-tuc');
-Route::get('/blog-khac', [FrontendController::class, 'blogKhac'])->name('blog.khac');
-Route::get('/thu-vien-anh', [FrontendController::class, 'gallery'])->name('gallery');
-Route::get('/blog/{slug}', [FrontendController::class, 'blogDetail'])->name('blog.detail');
-Route::get('/lien-he', [FrontendController::class, 'contact'])->name('contact');
-Route::post('/lien-he', [FrontendController::class, 'submitContact'])->name('contact.submit');
+// English Routes (Prefixed with /en)
+Route::middleware(\App\Http\Middleware\SetLocale::class)->prefix('en')->name('en.')->group(function () {
+    Route::get('/', [FrontendController::class, 'index'])->name('home');
+    Route::get('/about-us', [FrontendController::class, 'about'])->name('about');
+    Route::get('/products', [FrontendController::class, 'products'])->name('products');
+    Route::get('/products/{slug}', [FrontendController::class, 'productDetail'])->name('product.detail');
+    Route::get('/blog', [FrontendController::class, 'blog'])->name('blog');
+    Route::get('/news', [FrontendController::class, 'blogTinTuc'])->name('blog.tin-tuc');
+    Route::get('/other-news', [FrontendController::class, 'blogKhac'])->name('blog.khac');
+    Route::get('/gallery', [FrontendController::class, 'gallery'])->name('gallery');
+    Route::get('/blog/{slug}', [FrontendController::class, 'blogDetail'])->name('blog.detail');
+    Route::get('/contact', [FrontendController::class, 'contact'])->name('contact');
+    Route::post('/contact', [FrontendController::class, 'submitContact'])->name('contact.submit');
+});
 
 // Admin Dashboard Route (Inertia)
 Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');

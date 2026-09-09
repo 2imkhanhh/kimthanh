@@ -11,7 +11,7 @@
                         {{ $settings['home_intro_title'] ?? 'Trà Việt Nam là nghệ sĩ' }}</h1>
                     <div class="lead mb-4 text-white">{!! $settings['home_intro_desc'] ??
                         'Chúng tôi luôn đặt chất lượng và an toàn thực phẩm lên hàng đầu trong mọi quy trình sản xuất. Toàn bộ hệ thống nhà xưởng và quy trình chế biến được đảm bảo đạt chuẩn ISO 22000:2018.' !!}</div>
-                    <a href="{{ route('about') }}"
+                    <a href="{{ route(app()->getLocale() . '.about') }}"
                         class="btn btn-success btn-lg px-4 rounded-pill shadow">{{ app()->getLocale() == 'en' ? 'Discover now' : 'Khám phá ngay' }}</a>
                 </div>
             </div>
@@ -45,7 +45,7 @@
                         {!! $settings['home_about_desc'] ??
                             'Công ty TNHH Đầu tư Thương mại Kim Thành được thành lập vào ngày 03/02/2020...' !!}
                     </div>
-                    <a href="{{ route('about') }}"
+                    <a href="{{ route(app()->getLocale() . '.about') }}"
                         class="btn btn-outline-success btn-lg rounded-pill px-4">{{ app()->getLocale() == 'en' ? 'View details' : 'Xem chi tiết' }}
                         <i class="fa-solid fa-arrow-right ms-2"></i></a>
                 </div>
@@ -82,7 +82,7 @@
                         <div class="col" data-aos="fade-up" data-aos-delay="{{ ($index + 1) * 100 }}">
                             <div class="card h-100 border-0 shadow-sm product-card transition-all">
                                 <div class="position-relative overflow-hidden rounded-top-4">
-                                    <a href="{{ route('product.detail', $product->slug) }}">
+                                    <a href="{{ route(app()->getLocale() . '.product.detail', ['slug' => $product->slug]) }}">
                                         <img src="{{ $product->getFirstMediaUrl('products') ?: asset('images/no-image.jpg') }}"
                                             class="card-img-top w-100 object-fit-cover"
                                             alt="{{ $product->getTranslation('name', app()->getLocale()) }}"
@@ -91,10 +91,10 @@
                                 </div>
                                 <div class="card-body text-center p-4">
                                     <h5 class="card-title mb-3">
-                                        <a href="{{ route('product.detail', $product->slug) }}"
+                                        <a href="{{ route(app()->getLocale() . '.product.detail', ['slug' => $product->slug]) }}"
                                             class="text-dark text-decoration-none fw-semibold product-title">{{ $product->getTranslation('name', app()->getLocale()) }}</a>
                                     </h5>
-                                    <a href="{{ route('contact') }}"
+                                    <a href="{{ route(app()->getLocale() . '.contact') }}"
                                         class="btn btn-success rounded-pill px-4 py-2 w-100">{{ app()->getLocale() == 'en' ? 'Contact for price' : 'Liên hệ báo giá' }}</a>
                                 </div>
                             </div>
@@ -104,7 +104,7 @@
             @endforeach
 
             <div class="text-center mt-5" data-aos="fade-up">
-                <a href="{{ route('products') }}"
+                <a href="{{ route(app()->getLocale() . '.products') }}"
                     class="btn btn-outline-success btn-lg rounded-pill px-5">{{ app()->getLocale() == 'en' ? 'View all products' : 'Xem tất cả sản phẩm' }}</a>
             </div>
         </div>

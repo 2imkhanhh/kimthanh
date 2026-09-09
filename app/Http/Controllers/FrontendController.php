@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Setting;
 use App\Models\Product;
 use App\Models\Post;
+use App\Models\Category;
 
 class FrontendController extends Controller
 {
@@ -32,20 +33,20 @@ class FrontendController extends Controller
     public function products(Request $request)
     {
         $settings = $this->getSettings();
-        
+
         $activeCategoryId = $request->query('category');
-        
-        $categories = \App\Models\Category::whereHas('products', function($q) {
+
+        $categories = Category::query()->whereHas('products', function ($q) {
             $q->where('is_active', true);
         })->get();
-        
-        $query = Product::where('is_active', true);
+
+        $query = Product::query()->where('is_active', true);
         if ($activeCategoryId) {
             $query->where('category_id', $activeCategoryId);
         }
-        
+
         $products = $query->latest()->paginate(12)->withQueryString();
-        
+
         return view('pages.san-pham', compact('settings', 'products', 'categories', 'activeCategoryId'));
     }
 
@@ -53,12 +54,12 @@ class FrontendController extends Controller
     {
         $settings = $this->getSettings();
         $product = Product::where('slug', $slug)->where('is_active', true)->firstOrFail();
-        
+
         $relatedProducts = Product::where('category_id', $product->category_id)
             ->where('id', '!=', $product->id)
             ->where('is_active', true)
             ->get();
-            
+
         return view('pages.chi-tiet-san-pham', compact('settings', 'product', 'relatedProducts'));
     }
 
@@ -87,18 +88,18 @@ class FrontendController extends Controller
         $posts = Post::where('is_active', true)->where('type', 'hinh-anh')->latest()->paginate(12);
         return view('pages.gallery', compact('settings', 'posts'));
     }
-    
+
     public function blogDetail($slug)
     {
         $settings = $this->getSettings();
         $post = Post::where('slug', $slug)->where('is_active', true)->firstOrFail();
-        
+
         $relatedPosts = Post::where('type', $post->type)
             ->where('id', '!=', $post->id)
             ->where('is_active', true)
             ->latest()
             ->get();
-            
+
         return view('pages.chi-tiet-bai-viet', compact('settings', 'post', 'relatedPosts'));
     }
 
@@ -125,7 +126,6 @@ class FrontendController extends Controller
         ]);
 
         try {
-            // Email settings are now loaded globally via AppServiceProvider
             $mailReceiveStr = \App\Models\Setting::where('key', 'mail_receive_address')->first()?->value;
             $mailUsername = \App\Models\Setting::where('key', 'mail_username')->first()?->value;
 

@@ -15,10 +15,10 @@ class SetLocale
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (session()->has('locale')) {
-            app()->setLocale(session('locale'));
+        if ($request->segment(1) === 'en') {
+            app()->setLocale('en');
         } else {
-            app()->setLocale('vi'); // Default to vi
+            app()->setLocale('vi');
         }
         
         return $next($request);

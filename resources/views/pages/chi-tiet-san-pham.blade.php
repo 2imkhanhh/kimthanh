@@ -83,7 +83,7 @@
                             </div> 
                             
                             <div class="d-flex align-items-center mt-4 pt-3 border-top">
-                                <a href="{{ route('contact') }}" class="btn btn-success btn-lg rounded-pill px-5 shadow-sm me-3">
+                                <a href="{{ route(app()->getLocale() . '.contact') }}" class="btn btn-success btn-lg rounded-pill px-5 shadow-sm me-3">
                                     <i class="fa-solid fa-paper-plane me-2"></i>{{ app()->getLocale() == 'en' ? 'Contact for price' : 'Liên hệ báo giá' }}
                                 </a>
                             </div>
@@ -111,7 +111,7 @@
                             <div class="swiper-slide h-auto">
                                 <div class="card h-100 border-0 shadow-sm product-card transition-all">
                                     <div class="position-relative overflow-hidden rounded-top-4">
-                                        <a href="{{ route('product.detail', $related->slug) }}">
+                                        <a href="{{ route(app()->getLocale() . '.product.detail', ['slug' => $related->slug]) }}">
                                             <img src="{{ $related->getFirstMediaUrl('products') ?: asset('images/no-image.jpg') }}"
                                                 class="card-img-top w-100 object-fit-cover" alt="{{ $related->getTranslation('name', app()->getLocale()) }}"
                                                 style="height: 200px;">
@@ -119,10 +119,10 @@
                                     </div>
                                     <div class="card-body text-center p-3">
                                         <h6 class="card-title mb-3">
-                                            <a href="{{ route('product.detail', $related->slug) }}"
+                                            <a href="{{ route(app()->getLocale() . '.product.detail', ['slug' => $related->slug]) }}"
                                                 class="text-dark text-decoration-none fw-semibold product-title">{{ $related->getTranslation('name', app()->getLocale()) }}</a>
                                         </h6>
-                                        <a href="{{ route('contact') }}" class="btn btn-outline-success btn-sm rounded-pill px-4 py-2 w-100">{{ app()->getLocale() == 'en' ? 'Contact for price' : 'Liên hệ báo giá' }}</a>
+                                        <a href="{{ route(app()->getLocale() . '.contact') }}" class="btn btn-outline-success btn-sm rounded-pill px-4 py-2 w-100">{{ app()->getLocale() == 'en' ? 'Contact for price' : 'Liên hệ báo giá' }}</a>
                                     </div>
                                 </div>
                             </div>
