@@ -34,7 +34,7 @@ const submit = () => {
 
 <template>
 
-    <Head title="TanBinh Admin - Đăng nhập" />
+    <Head title="KimThanh Admin - Đăng nhập" />
     <div class="login-wrapper">
         <div class="login-container">
             <div class="login-left">
@@ -62,7 +62,7 @@ const submit = () => {
                                     </path>
                                     <polyline points="22,6 12,13 2,6"></polyline>
                                 </svg>
-                                <input id="email" type="email" v-model="form.email" placeholder="admin@tanbinhtea.com" required
+                                <input id="email" type="email" v-model="form.email" placeholder="admin@kimthanh.com" required
                                     autofocus :class="{ 'has-error': form.errors.email }" />
                             </div>
                             <span v-if="form.errors.email" class="error-text">{{ form.errors.email }}</span>

@@ -42,10 +42,10 @@ Route::middleware(\App\Http\Middleware\SetLocale::class)->prefix('en')->name('en
 });
 
 // Admin Dashboard Route (Inertia)
-Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(['auth', 'verified', 'admin.timeout'])->name('dashboard');
 
 // Admin Routes Group
-Route::middleware(['auth', 'verified'])->prefix('admin')->name('admin.')->group(function () {
+Route::middleware(['auth', 'verified', 'admin.timeout'])->prefix('admin')->name('admin.')->group(function () {
     Route::resource('settings', SettingController::class);
     Route::resource('categories', CategoryController::class);
     Route::resource('products', ProductController::class);
@@ -55,7 +55,7 @@ Route::middleware(['auth', 'verified'])->prefix('admin')->name('admin.')->group(
 });
 
 // Auth & Profile Routes
-Route::middleware('auth')->group(function () {
+Route::middleware(['auth', 'admin.timeout'])->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');

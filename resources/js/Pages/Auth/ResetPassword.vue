@@ -37,13 +37,12 @@ const submit = () => {
 
 <template>
 
-    <Head title="TanBinh Admin - Đặt lại mật khẩu" />
+    <Head title="KimThanh Admin - Đặt lại mật khẩu" />
     <div class="reset-wrapper">
         <div class="reset-container">
             <div class="reset-left">
                 <div class="brand-container">
-                    <img src="/assets/images/common/logo.png" alt="TanBinh Logo" class="brand-logo" />
-                    <span class="brand-name">TAN BINH TEA</span>
+                    <img src="/upload/banner/logo1698075966.png" alt="KimThanh Logo" class="brand-logo" />
                 </div>
             </div>
             <div class="reset-right">
@@ -64,7 +63,7 @@ const submit = () => {
                                     </path>
                                     <polyline points="22,6 12,13 2,6"></polyline>
                                 </svg>
-                                <input id="email" type="email" v-model="form.email" placeholder="admin@tanbinhtea.com" required
+                                <input id="email" type="email" v-model="form.email" placeholder="admin@kimthanh.com" required
                                     autocomplete="username" :class="{ 'has-error': form.errors.email }" />
                             </div>
                             <span v-if="form.errors.email" class="error-text">{{ form.errors.email }}</span>
@@ -231,7 +230,7 @@ const submit = () => {
 }
 
 .brand-logo {
-    width: 140px;
+    width: 220px;
     height: auto;
     object-fit: contain;
     filter: drop-shadow(0 10px 30px rgba(16, 129, 64, 0.2));
@@ -445,13 +444,7 @@ const submit = () => {
         height: 200px;
     }
 
-    .brand-container {
-        height: 100%;
-    }
 
-    .brand-logo {
-        width: 100px;
-    }
 
     .reset-right {
         padding: 2rem;
