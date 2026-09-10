@@ -74,7 +74,7 @@
                                     <div class="row g-3">
                                         <div class="col-md-6">
                                             <div class="form-floating">
-                                                <input type="text" name="name" class="form-control bg-light border-0"
+                                                <input type="text" name="fullname" class="form-control bg-light border-0"
                                                     id="nameInput" placeholder="{{ app()->getLocale() == 'en' ? 'Full name' : 'Họ tên' }}" required>
                                                 <label for="nameInput">{{ app()->getLocale() == 'en' ? 'Full name *' : 'Họ tên *' }}</label>
                                             </div>
@@ -96,7 +96,7 @@
                                         </div>
                                         <div class="col-12">
                                             <div class="form-floating">
-                                                <textarea name="message" class="form-control bg-light border-0" id="messageInput" placeholder="{{ app()->getLocale() == 'en' ? 'Message' : 'Lời nhắn' }}"
+                                                <textarea name="content" class="form-control bg-light border-0" id="messageInput" placeholder="{{ app()->getLocale() == 'en' ? 'Message' : 'Lời nhắn' }}"
                                                     style="height: 120px" required></textarea>
                                                 <label for="messageInput">{{ app()->getLocale() == 'en' ? 'Message *' : 'Lời nhắn *' }}</label>
                                             </div>

@@ -288,6 +288,41 @@
         });
     </script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#frmContact').on('submit', function(e) {
+                e.preventDefault();
+                var form = $(this);
+                var submitBtn = form.find('button[type="submit"]');
+                var originalText = submitBtn.html();
+                
+                submitBtn.prop('disabled', true).html('<i class="fa-solid fa-spinner fa-spin me-2"></i> Đang gửi...');
+                
+                $.ajax({
+                    type: form.attr('method'),
+                    url: form.attr('action'),
+                    data: form.serialize(),
+                    success: function(response) {
+                        submitBtn.prop('disabled', false).html(originalText);
+                        if (response.type === 'success') {
+                            showAdminToast(response.message, 'success');
+                            form[0].reset();
+                        } else {
+                            showAdminToast(response.message || 'Có lỗi xảy ra', 'error');
+                        }
+                    },
+                    error: function(xhr) {
+                        submitBtn.prop('disabled', false).html(originalText);
+                        var msg = 'Có lỗi xảy ra, vui lòng thử lại sau.';
+                        if(xhr.responseJSON && xhr.responseJSON.message) {
+                            msg = xhr.responseJSON.message;
+                        }
+                        showAdminToast(msg, 'error');
+                    }
+                });
+            });
+        });
+    </script>
     @yield('scripts')
 </body>
 
